@@ -118,67 +118,21 @@ function buildPrompt(f) {
     ? "\nPERHATIAN: Beberapa jawaban user singkat. Jangan berasumsi — fokus pada yang jelas terlihat dari jawaban yang ada."
     : "\nJawaban user cukup detail. Gunakan detail spesifik dari setiap jawaban.";
   return {
-    system: `Kamu adalah Digital & Brand Strategist senior yang berbasis di Indonesia, berpengalaman di pasar UKM Indonesia. Gaya: jujur, ringkas, actionable. Gunakan "kamu". Gunakan "Saya" bukan nama.
+    system: `Kamu adalah Brand Strategist Indonesia. Output HARUS raw JSON satu baris, tanpa backtick, tanpa newline di dalam string. Gunakan kata "kamu".
 
-KONTEKS PASAR INDONESIA:
-- Platform dominan: Instagram & TikTok untuk discovery, WhatsApp untuk konversi, Tokopedia/Shopee untuk e-commerce
-- Konsumen Indonesia: trust-driven, word-of-mouth kuat, visual-first, price-sensitive tapi mau bayar untuk value yang jelas
-- Persaingan sangat tinggi di setiap industri — diferensiasi brand adalah kunci
-${qualityNote}
-
-RULES WAJIB:
-1. opening_line: 1 kalimat natural, sebut nama bisnis + industri + durasi
-2. diagnosis_p1: kondisi brand SEKARANG — wajib parafrase jawaban spesifik user, bukan asumsi
-3. diagnosis_p2: akar masalah + 1 peluang konkret untuk industri ${f.industri} di ${loc}
-4. action items: spesifik, bisa dikerjakan minggu ini, max 15 kata, relevan platform/industri
-5. prioritas: 3 tindakan paling berdampak dalam 48 jam pertama
-6. kompetitor: analisis nyata berdasarkan pasar ${f.industri} di ${loc}
-7. pesan_personal: sebut nama bisnis + 1 tantangan spesifik dari jawaban mereka, max 2 kalimat
-8. DILARANG: kalimat generik tanpa konteks spesifik
-9. CRITICAL: Output harus raw JSON saja. DILARANG menggunakan backtick, markdown, atau code block. DILARANG newline di dalam nilai string JSON. Setiap nilai string harus single line.
-
-Output format TEPAT seperti ini (satu baris, tidak ada newline di dalam string):
-{"opening_line":"1 kalimat","diagnosis_p1":"2-3 kalimat tanpa newline","diagnosis_p2":"2-3 kalimat tanpa newline","minggu1":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["action 1","action 2","action 3","action 4"]},"minggu2":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["a1","a2","a3","a4"]},"minggu3":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["a1","a2","a3","a4"]},"minggu4":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["a1","a2","a3","a4"]},"prioritas":["tindakan 1","tindakan 2","tindakan 3"],"kompetitor_analisis":[{"nama":"Nama Brand","url":"link","kelebihan":"max 10 kata","kelemahan":"max 10 kata","peluang":"max 12 kata"}],"kompetitor_riset_mandiri":true,"pesan_personal":"max 2 kalimat"}`,
+Output format (satu baris):
+{"opening_line":"1 kalimat personal sebut nama bisnis+industri+durasi","diagnosis_p1":"2 kalimat kondisi brand sekarang","diagnosis_p2":"2 kalimat akar masalah dan peluang","minggu1":{"tema":"judul","icon":"emoji","focus":"fokus minggu ini","actions":["action 1","action 2","action 3","action 4"]},"minggu2":{"tema":"judul","icon":"emoji","focus":"fokus","actions":["a1","a2","a3","a4"]},"minggu3":{"tema":"judul","icon":"emoji","focus":"fokus","actions":["a1","a2","a3","a4"]},"minggu4":{"tema":"judul","icon":"emoji","focus":"fokus","actions":["a1","a2","a3","a4"]},"prioritas":["tindakan hari ini 1","tindakan 2","tindakan 3"],"kompetitor_analisis":[{"nama":"nama brand","url":"link","kelebihan":"singkat","kelemahan":"singkat","peluang":"singkat"}],"kompetitor_riset_mandiri":true,"pesan_personal":"1-2 kalimat hangat"}`,
     user: [
-      "=== DATA BISNIS ===",
-      "Nama: " + f.namaBisnis,
-      "Industri: " + f.industri,
-      "Wilayah: " + loc,
-      "Lama berjalan: " + f.lamaBisnis,
-      "Tim: " + f.ukuranTim,
-      "Cara dapat pelanggan: " + (f.caraPelanggan.join(", ")||"belum ada strategi"),
-      "Platform: IG=" + (f.instagram||"tidak ada") + " | Web=" + (f.website||"tidak ada") + " | TikTok=" + (f.tiktok||"tidak ada") + " | Marketplace=" + (f.marketplace||"tidak ada") + " | WA=" + (f.wa||"tidak ada"),
-      "",
-      "=== KOMPETITOR ===",
-      kompSection,
-      "",
-      "=== KONDISI BRAND ===",
-      "Q: Kesan pertama brand dari sudut pandang orang baru?",
-      "A: " + (f.s1||"[tidak dijawab]"),
-      "Q: Konsistensi brand?",
-      "A: " + (f.s2||"[tidak dipilih]") + (f.s2d ? " — " + f.s2d : ""),
-      "Q: Feedback yang pernah diterima?",
-      "A: " + (f.s3||"[tidak dijawab]"),
-      "Q: Pelanggan terbaik dan kenapa memilih kamu?",
-      "A: " + (f.s4||"[tidak dijawab]"),
-      "",
-      "=== TANTANGAN ===",
-      "Q: Yang sudah dicoba tapi tidak berhasil?",
-      "A: " + (f.t1||"[tidak dijawab]"),
-      "Q: Bagian brand paling belum beres?",
-      "A: " + (f.t2||"[tidak dijawab]"),
-      "Q: Pernah kalah dari kompetitor?",
-      "A: " + (f.t3||"[tidak dijawab]"),
-      "Q: Satu hal paling mengganjal?",
-      "A: " + (f.t4||"[tidak dijawab]"),
-      "",
-      "=== TUJUAN 30 HARI ===",
-      "Q: Apa yang ingin berubah?",
-      "A: " + (f.g1||"[tidak dijawab]"),
-      "Prioritas: " + (f.g2||"-"),
-      "Waktu: " + (f.g3||"-") + " per minggu",
-      "Kendala: " + (f.g4||"tidak disebutkan"),
-    ].join("\n")
+      "Bisnis: " + f.namaBisnis + " | " + f.industri + " | " + loc + " | " + f.lamaBisnis + " | Tim: " + f.ukuranTim,
+      "Platform: IG=" + (f.instagram||"-") + " Web=" + (f.website||"-") + " TikTok=" + (f.tiktok||"-"),
+      komp.length > 0 ? "Kompetitor: " + komp.join(", ") : "Riset kompetitor mandiri untuk " + f.industri + " di " + loc,
+      "Brand sekarang: " + f.s1,
+      "Konsistensi: " + f.s2,
+      "Tantangan: " + f.t1,
+      "Belum beres: " + f.t2,
+      "Tujuan 30 hari: " + f.g1,
+      "Prioritas: " + f.g2 + " | Waktu: " + f.g3,
+    ].filter(Boolean).join("\n")
   };
 }
 
