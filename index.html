@@ -353,8 +353,9 @@ function App() {
       } catch(fe){ clearTimeout(to); throw{type:"network",msg:fe.name==="AbortError"?"Koneksi timeout. Coba lagi.":"Periksa koneksi internet kamu."}; }
       if(!res.ok) throw{type:"api",msg:"Server sibuk ("+res.status+"). Coba lagi."};
       let data; try{data=await res.json();}catch(e){throw{type:"parse",msg:"Respons tidak terbaca."};}
-      const txt=(data.content||[]).find(b=>b.type==="text")||{text:"{}"};
-      let parsed; try{parsed=JSON.parse(txt.text.replace(/```json|```/g,"").trim());}catch(e){throw{type:"parse",msg:"Format tidak valid. Coba lagi."};}
+      const txt=(data.content||[]).find(b=>b.type==="text");
+      const rawText = txt ? txt.text : (typeof data.content === "string" ? data.content : "{}");
+      let parsed; try{parsed=JSON.parse(rawText.replace(/```json|```/g,"").trim());}catch(e){throw{type:"parse",msg:"Format tidak valid. Coba lagi."};}
       if(!parsed.diagnosis_p1) throw{type:"parse",msg:"Hasil tidak lengkap. Coba lagi."};
       clearInterval(iv);
       await submitToFormspree(parsed);
