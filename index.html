@@ -348,7 +348,7 @@ function App() {
       let res;
       try {
         res=await fetch("/.netlify/functions/claude",{method:"POST",headers:{"Content-Type":"application/json"},signal:ctrl.signal,
-          body:JSON.stringify({model:"claude-sonnet-4-5-20251001",max_tokens:4000,system,messages:[{role:"user",content:user}]})});
+          body:JSON.stringify({model:"claude-haiku-4-5-20251001",max_tokens:2000,system,messages:[{role:"user",content:user}]})});
         clearTimeout(to);
       } catch(fe){ clearTimeout(to); throw{type:"network",msg:fe.name==="AbortError"?"Koneksi timeout. Coba lagi.":"Periksa koneksi internet kamu."}; }
       if(!res.ok) throw{type:"api",msg:"Server sibuk ("+res.status+"). Coba lagi."};
