@@ -1,5 +1,4 @@
 exports.handler = async (event) => {
-  // Handle CORS preflight
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
@@ -33,7 +32,11 @@ exports.handler = async (event) => {
         "x-api-key": process.env.ANTHROPIC_API_KEY,
         "anthropic-version": "2023-06-01",
       },
-      body: JSON.stringify({...body, model: "claude-sonnet-4-5"}),
+      body: JSON.stringify({
+        ...body,
+        model: "claude-haiku-4-5",
+        max_tokens: 2000,
+      }),
     });
 
     const data = await response.json();
