@@ -354,8 +354,14 @@ function App() {
       if(!res.ok) throw{type:"api",msg:"Server sibuk ("+res.status+"). Coba lagi."};
       let data; try{data=await res.json();}catch(e){throw{type:"parse",msg:"Respons tidak terbaca."};}
       const txt=(data.content||[]).find(b=>b.type==="text");
-      const rawText = txt ? txt.text : (typeof data.content === "string" ? data.content : "{}");
-      let parsed; try{parsed=JSON.parse(rawText.replace(/```json|```/g,"").trim());}catch(e){throw{type:"parse",msg:"Format tidak valid. Coba lagi."};}
+      const rawText = txt ? txt.text : "{}";
+      const cleaned = rawText
+        .replace(/^```json\s*/i, "")
+        .replace(/^```\s*/i, "")
+        .replace(/\s*```$/i, "")
+        .replace(/\\n/g, " ")
+        .trim();
+      let parsed; try{parsed=JSON.parse(cleaned);}catch(e){throw{type:"parse",msg:"Format tidak valid. Coba lagi."};}
       if(!parsed.diagnosis_p1) throw{type:"parse",msg:"Hasil tidak lengkap. Coba lagi."};
       clearInterval(iv);
       await submitToFormspree(parsed);
