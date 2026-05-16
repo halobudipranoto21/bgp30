@@ -135,21 +135,10 @@ RULES WAJIB:
 6. kompetitor: analisis nyata berdasarkan pasar ${f.industri} di ${loc}
 7. pesan_personal: sebut nama bisnis + 1 tantangan spesifik dari jawaban mereka, max 2 kalimat
 8. DILARANG: kalimat generik tanpa konteks spesifik
+9. CRITICAL: Output harus raw JSON saja. DILARANG menggunakan backtick, markdown, atau code block. DILARANG newline di dalam nilai string JSON. Setiap nilai string harus single line.
 
-JSON ONLY, no markdown:
-{
-  "opening_line": "1 kalimat pembuka personal",
-  "diagnosis_p1": "2-3 kalimat kondisi sekarang berdasarkan jawaban user",
-  "diagnosis_p2": "2-3 kalimat akar masalah dan peluang spesifik",
-  "minggu1":{"tema":"judul singkat","icon":"emoji","focus":"1 kalimat","actions":["action 1","action 2","action 3","action 4"]},
-  "minggu2":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["...","...","...","..."]},
-  "minggu3":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["...","...","...","..."]},
-  "minggu4":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["...","...","...","..."]},
-  "prioritas":["tindakan 48 jam #1","#2","#3"],
-  "kompetitor_analisis":[{"nama":"Nama Brand","url":"link","kelebihan":"max 10 kata","kelemahan":"max 10 kata","peluang":"max 12 kata"}],
-  "kompetitor_riset_mandiri": true,
-  "pesan_personal":"max 2 kalimat hangat dan spesifik"
-}`,
+Output format TEPAT seperti ini (satu baris, tidak ada newline di dalam string):
+{"opening_line":"1 kalimat","diagnosis_p1":"2-3 kalimat tanpa newline","diagnosis_p2":"2-3 kalimat tanpa newline","minggu1":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["action 1","action 2","action 3","action 4"]},"minggu2":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["a1","a2","a3","a4"]},"minggu3":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["a1","a2","a3","a4"]},"minggu4":{"tema":"judul","icon":"emoji","focus":"1 kalimat","actions":["a1","a2","a3","a4"]},"prioritas":["tindakan 1","tindakan 2","tindakan 3"],"kompetitor_analisis":[{"nama":"Nama Brand","url":"link","kelebihan":"max 10 kata","kelemahan":"max 10 kata","peluang":"max 12 kata"}],"kompetitor_riset_mandiri":true,"pesan_personal":"max 2 kalimat"}`,
     user: [
       "=== DATA BISNIS ===",
       "Nama: " + f.namaBisnis,
@@ -355,13 +344,18 @@ function App() {
       let data; try{data=await res.json();}catch(e){throw{type:"parse",msg:"Respons tidak terbaca."};}
       const txt=(data.content||[]).find(b=>b.type==="text");
       const rawText = txt ? txt.text : "{}";
-      const cleaned = rawText
-        .replace(/^```json\s*/i, "")
-        .replace(/^```\s*/i, "")
-        .replace(/\s*```$/i, "")
-        .replace(/\\n/g, " ")
-        .trim();
-      let parsed; try{parsed=JSON.parse(cleaned);}catch(e){throw{type:"parse",msg:"Format tidak valid. Coba lagi."};}
+      let cleaned = rawText.trim();
+      // Remove backticks/markdown wrapper
+      cleaned = cleaned.replace(/^```json\s*/i,"").replace(/^```\s*/i,"").replace(/\s*```$/i,"").trim();
+      // Extract just the JSON object
+      const firstBrace = cleaned.indexOf("{");
+      const lastBrace = cleaned.lastIndexOf("}");
+      if(firstBrace !== -1 && lastBrace !== -1) cleaned = cleaned.slice(firstBrace, lastBrace+1);
+      // Replace literal newlines inside the string with space
+      cleaned = cleaned.replace(/\n/g," ").replace(/\r/g,"");
+      let parsed;
+      try { parsed = JSON.parse(cleaned); }
+      catch(e) { throw{type:"parse", msg:"Format tidak valid. Coba lagi."}; }
       if(!parsed.diagnosis_p1) throw{type:"parse",msg:"Hasil tidak lengkap. Coba lagi."};
       clearInterval(iv);
       await submitToFormspree(parsed);
