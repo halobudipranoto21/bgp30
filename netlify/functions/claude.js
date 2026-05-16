@@ -39,7 +39,17 @@ exports.handler = async (event) => {
       }),
     });
 
-    const data = await response.json();
+    const text = await response.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch(e) {
+      return {
+        statusCode: 500,
+        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+        body: JSON.stringify({ error: "Failed to parse response", raw: text.slice(0, 500) }),
+      };
+    }
 
     return {
       statusCode: response.ok ? 200 : response.status,
