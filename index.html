@@ -7,6 +7,8 @@
 <title>Brand Growth Plan 30 — Budi Pranoto</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init("jUywjsnvRbSRd7elT");</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{background:#F8F4EC;overscroll-behavior:none;}
@@ -76,6 +78,7 @@ const LOAD_MSGS = [
 const INIT = {
   namaBisnis:"",industri:"",wilayah:"",wilayahDetail:"",lamaBisnis:"",ukuranTim:"",
   caraPelanggan:[],website:"",instagram:"",tiktok:"",marketplace:"",wa:"",
+  userEmail:"",
   kompetitor:["","","","",""],
   s1:"",s2:"",s2d:"",s3:"",s4:"",
   t1:"",t2:"",t3:"",t4:"",
@@ -181,6 +184,41 @@ async function runAI(isRetry) {
     clearInterval(iv);
     state.result = parsed;
     clearSaved();
+
+    // Send via EmailJS
+    try {
+      const f = state.form;
+      const r = parsed;
+      const loc = f.wilayahDetail||f.wilayah||"Indonesia";
+      const date = new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});
+
+      // Format rencana 30 hari
+      const rencana = ["minggu1","minggu2","minggu3","minggu4"].map((m,i)=>{
+        if(!r[m]) return "";
+        const acts = (r[m].actions||[]).map((a,j)=>`  ${j+1}. ${a}`).join("\n");
+        return `MINGGU ${i+1}: ${r[m].tema}\n${acts}`;
+      }).filter(Boolean).join("\n\n");
+
+      // Format kompetitor
+      const komp = (r.kompetitor_analisis||[]).map((k,i)=>{
+        return `Kompetitor ${i+1}: ${k.nama||k.url}\n  Kelebihan: ${k.kelebihan}\n  Kelemahan: ${k.kelemahan}\n  Peluang: ${k.peluang}`;
+      }).join("\n\n");
+
+      await emailjs.send("bgp30", "template_bgp30", {
+        user_email: f.userEmail,
+        nama_bisnis: f.namaBisnis,
+        industri: f.industri,
+        wilayah: loc,
+        tanggal: date,
+        opening_line: r.opening_line||"",
+        diagnosis_p1: r.diagnosis_p1||"",
+        diagnosis_p2: r.diagnosis_p2||"",
+        prioritas: (r.prioritas||[]).map((p,i)=>`${i+1}. ${p}`).join("\n"),
+        rencana_30_hari: rencana,
+        kompetitor: komp||"Tidak ada data kompetitor.",
+        pesan_personal: r.pesan_personal||"",
+      });
+    } catch(e) { console.log("EmailJS error:", e); }
 
     // Submit to Formspree
     try {
@@ -457,6 +495,12 @@ function renderProfil() {
           )
         ),
 
+        h("div",{class:"field"},
+          h("p",{class:"lbl"},"Email kamu"),
+          h("p",{class:"hint"},"Hasil Brand Growth Plan 30 akan dikirim ke email ini — supaya tidak hilang kalau tab browser ditutup."),
+          h("input",{class:"inp",type:"email",placeholder:"contoh: nama@email.com",value:f.userEmail,oninput:e=>sf("userEmail",e.target.value)})
+        ),
+
         state.err && h("p",{class:"err"},state.err),
         h("div",{style:"height:90px;"})
       ),
@@ -633,6 +677,7 @@ function renderTujuan() {
         h("button",{class:"btn btn-primary",onclick:()=>{
           if(!f.g1||!f.g2||!f.g3){state.err="Lengkapi semua pertanyaan.";render();return;}
           if(f.g1.length<30){state.err="Jawaban tujuan masih terlalu singkat.";render();return;}
+          if(!f.userEmail||!f.userEmail.includes("@")){state.err="Masukkan email yang valid.";render();return;}
           runAI(false);
         }},"Buat Brand Growth Plan 30 →"),
         h("button",{class:"btn btn-ghost",style:"margin-top:7px;",onclick:()=>go("tantangan")},"← Kembali")
