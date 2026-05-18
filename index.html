@@ -3,27 +3,22 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-<meta name="description" content="Brand Growth Plan 30 — Rencana brand 30 hari yang personal untuk bisnis kamu."/>
 <title>Brand Growth Plan 30 — Budi Pranoto</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>emailjs.init("jUywjsnvRbSRd7elT");</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{background:#F8F4EC;overscroll-behavior:none;}
 body{font-family:'Inter',sans-serif;color:#1a1a2e;-webkit-font-smoothing:antialiased;}
 .shell{width:100%;max-width:430px;margin:0 auto;min-height:100vh;background:#fff;}
 @media(min-width:480px){.shell{box-shadow:0 0 80px rgba(0,0,0,0.12);}}
-.screen{padding:24px 20px 110px;animation:fadeUp 0.3s ease both;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.screen{padding:24px 20px 110px;}
 .action-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;padding:12px 20px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(to top,#fff 75%,transparent);z-index:50;}
-.btn{width:100%;height:52px;border:none;border-radius:14px;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:transform 0.1s,box-shadow 0.15s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn{width:100%;height:52px;border:none;border-radius:14px;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;}
 .btn:active{transform:scale(0.97);}
 .btn-primary{background:#1a1a2e;color:#fff;box-shadow:4px 4px 0 #F5C518;}
 .btn-yellow{background:#F5C518;color:#1a1a2e;box-shadow:4px 4px 0 #1a1a2e;}
 .btn-ghost{background:transparent;color:#6b6b6b;border:2px solid #E8E4DA;height:44px;font-size:14px;font-weight:500;border-radius:12px;}
-.btn:disabled{opacity:0.4;cursor:not-allowed;box-shadow:none;}
 .prog-wrap{position:sticky;top:0;z-index:40;background:#fff;border-bottom:2px solid #1a1a2e;padding:10px 20px;}
 .prog-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
 .prog-track{height:4px;background:#F8F4EC;border-radius:99px;overflow:hidden;border:1px solid #E8E4DA;}
@@ -32,19 +27,19 @@ body{font-family:'Inter',sans-serif;color:#1a1a2e;-webkit-font-smoothing:antiali
 .lbl{font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:3px;}
 .hint{font-size:12px;color:#bbb;margin-bottom:8px;line-height:1.45;}
 .example{background:#FFFBE6;border:1px solid #F5C518;border-radius:8px;padding:9px 12px;margin-bottom:8px;}
-.inp{width:100%;padding:12px 14px;border:2px solid #E8E4DA;border-radius:10px;font-family:'Inter',sans-serif;font-size:14px;color:#1a1a2e;background:#fff;outline:none;transition:border 0.15s;-webkit-appearance:none;}
+.inp{width:100%;padding:12px 14px;border:2px solid #E8E4DA;border-radius:10px;font-family:'Inter',sans-serif;font-size:14px;color:#1a1a2e;background:#fff;outline:none;-webkit-appearance:none;}
 .inp:focus{border-color:#1a1a2e;}
-.ta{width:100%;padding:12px 14px;border:2px solid #E8E4DA;border-radius:10px;font-family:'Inter',sans-serif;font-size:14px;color:#1a1a2e;background:#fff;outline:none;resize:none;line-height:1.55;min-height:90px;transition:border 0.15s;-webkit-appearance:none;}
+.ta{width:100%;padding:12px 14px;border:2px solid #E8E4DA;border-radius:10px;font-family:'Inter',sans-serif;font-size:14px;color:#1a1a2e;background:#fff;outline:none;resize:none;line-height:1.55;min-height:90px;-webkit-appearance:none;}
 .ta:focus{border-color:#1a1a2e;}
 .inp::placeholder,.ta::placeholder{color:#bbb;}
-.opt{display:flex;align-items:center;gap:10px;padding:11px 14px;border:2px solid #E8E4DA;border-radius:10px;cursor:pointer;margin-bottom:7px;transition:all 0.12s;background:#fff;user-select:none;}
+.opt{display:flex;align-items:center;gap:10px;padding:11px 14px;border:2px solid #E8E4DA;border-radius:10px;margin-bottom:7px;background:#fff;cursor:pointer;user-select:none;}
 .opt.sel{border-color:#1a1a2e;background:#FFFBE6;}
-.dot{width:18px;height:18px;border-radius:50%;border:2px solid #E8E4DA;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.12s;}
+.dot{width:18px;height:18px;border-radius:50%;border:2px solid #E8E4DA;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .opt.sel .dot{border-color:#1a1a2e;background:#1a1a2e;}
-.chk{width:18px;height:18px;border-radius:4px;border:2px solid #E8E4DA;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;transition:all 0.12s;}
+.chk{width:18px;height:18px;border-radius:4px;border:2px solid #E8E4DA;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;}
 .opt.sel .chk{border-color:#1a1a2e;background:#1a1a2e;}
 .opt-lbl{font-size:13px;font-weight:500;color:#1a1a2e;}
-.tag{display:inline-flex;align-items:center;gap:5px;background:#F5C518;color:#1a1a2e;font-size:10px;font-weight:800;padding:4px 12px;border-radius:99px;letter-spacing:0.08em;text-transform:uppercase;border:1.5px solid #1a1a2e;}
+.tag{display:inline-flex;align-items:center;background:#F5C518;color:#1a1a2e;font-size:10px;font-weight:800;padding:4px 12px;border-radius:99px;letter-spacing:0.08em;text-transform:uppercase;border:1.5px solid #1a1a2e;}
 .eyebrow{font-size:10px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#bbb;}
 .h2{font-size:19px;font-weight:800;line-height:1.2;letter-spacing:-0.018em;color:#1a1a2e;}
 .err{color:#e63946;font-size:12px;font-weight:600;margin-top:6px;}
@@ -57,1002 +52,700 @@ body{font-family:'Inter',sans-serif;color:#1a1a2e;-webkit-font-smoothing:antiali
 .komp-card{border:2px solid #1a1a2e;border-radius:12px;overflow:hidden;margin-bottom:10px;}
 .komp-head{padding:12px 14px;background:#1a1a2e;}
 @keyframes spin{to{transform:rotate(360deg);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <script>
+emailjs.init("jUywjsnvRbSRd7elT");
+
 const WA = "6281261728338";
 const LI = "https://www.linkedin.com/in/budipranoto/";
 const C = {ink:"#1a1a2e",yellow:"#F5C518",yellowLight:"#FFFBE6",cream:"#F8F4EC",white:"#fff",muted:"#6b6b6b",soft:"#bbb",border:"#E8E4DA",red:"#e63946",green:"#25D366"};
 
-const LOAD_MSGS = [
-  "Membaca kondisi brand kamu...",
-  "Riset kompetitor di wilayah kamu...",
-  "Menganalisis tantangan...",
-  "Menyusun prioritas...",
-  "Merancang rencana 30 hari...",
-  "Hampir selesai...",
-];
+const LOAD_MSGS = ["Lagi baca kondisi brand kamu...","Cek kompetitor di wilayahmu...","Ngolah tantangan yang kamu hadapi...","Susun apa yang paling penting dulu...","Nulis rencana 30 hari...","Hampir jadi..."];
 
 const INIT = {
   namaBisnis:"",industri:"",wilayah:"",wilayahDetail:"",lamaBisnis:"",ukuranTim:"",
   caraPelanggan:[],website:"",instagram:"",tiktok:"",marketplace:"",wa:"",
-  userEmail:"",
   kompetitor:["","","","",""],
   s1:"",s2:"",s2d:"",s3:"",s4:"",
   t1:"",t2:"",t3:"",t4:"",
-  g1:"",g2:"",g3:"",g4:"",
+  g1:"",g2:"",g3:"",g4:"",userEmail:"",
 };
 
-// State
-let state = {
-  step: "sales",
-  form: {...INIT},
-  result: null,
-  err: "",
-  loadIdx: 0,
-  retryCount: 0,
-  errType: null,
-  hasSaved: false,
-  pdfLoading: false,
-};
+let state = {step:"sales",form:JSON.parse(JSON.stringify(INIT)),result:null,err:"",loadIdx:0,retryCount:0,errType:null,hasSaved:false,pdfLoading:false};
 
-function buildUserPrompt(f) {
-  const komp = f.kompetitor.filter(k=>k.trim());
-  const loc = f.wilayahDetail||f.wilayah||"Indonesia";
-  return [
-    "Bisnis: " + f.namaBisnis + " | Industri: " + f.industri + " | Wilayah: " + loc,
-    "Lama: " + f.lamaBisnis + " | Tim: " + f.ukuranTim,
-    "Platform: IG=" + (f.instagram||"-") + " Web=" + (f.website||"-") + " TikTok=" + (f.tiktok||"-") + " Marketplace=" + (f.marketplace||"-"),
-    komp.length > 0 ? "Kompetitor: " + komp.join(", ") : "Riset 2-3 kompetitor utama untuk " + f.industri + " di " + loc,
-    "Kondisi brand: " + f.s1,
-    "Konsistensi: " + f.s2 + (f.s2d ? " - " + f.s2d : ""),
-    "Feedback: " + (f.s3||"-"),
-    "Pelanggan terbaik: " + (f.s4||"-"),
-    "Sudah dicoba: " + f.t1,
-    "Belum beres: " + f.t2,
-    "Kalah kompetitor: " + (f.t3||"-"),
-    "Mengganjal: " + (f.t4||"-"),
-    "Tujuan 30 hari: " + f.g1,
-    "Prioritas: " + f.g2 + " | Waktu: " + f.g3 + " | Kendala: " + (f.g4||"-"),
-  ].join("\n");
+// ── Helpers ──────────────────────────────────────────────────
+function sf(k,v){ state.form[k]=v; try{localStorage.setItem("bgp30_form",JSON.stringify(state.form));}catch(e){} }
+function tog(k,v){ const a=state.form[k]; state.form[k]=a.includes(v)?a.filter(x=>x!==v):[...a,v]; try{localStorage.setItem("bgp30_form",JSON.stringify(state.form));}catch(e){} render(); }
+
+function go(step){
+  state.step=step; state.err="";
+  if(step!=="loading"&&step!=="error") try{localStorage.setItem("bgp30_step",step);}catch(e){}
+  render(); window.scrollTo(0,0);
 }
 
-function parseResult(txt) {
-  let text = txt;
-  // Remove backticks
-  text = text.replace(/```json/gi,"").replace(/```/g,"").trim();
-  // Extract JSON
-  const first = text.indexOf("{");
-  const last = text.lastIndexOf("}");
-  if(first !== -1 && last !== -1) text = text.slice(first, last+1);
-  // Remove newlines
-  text = text.replace(/\r?\n/g," ").replace(/\s+/g," ").trim();
-  return JSON.parse(text);
-}
-
-async function runAI(isRetry) {
-  state.step = "loading";
-  state.loadIdx = 0;
-  if(isRetry) state.retryCount++;
-  else state.retryCount = 0;
-  state.errType = null;
-  state.err = "";
-  render();
-
-  let i = 0;
-  const iv = setInterval(()=>{ i++; if(i<LOAD_MSGS.length){state.loadIdx=i;updateLoadMsg();} }, 1800);
-
-  try {
-    const userContent = buildUserPrompt(state.form);
-    const ctrl = new AbortController();
-    const to = setTimeout(()=>ctrl.abort(), 45000);
-
-    let res;
-    try {
-      res = await fetch("/.netlify/functions/claude", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        signal: ctrl.signal,
-        body: JSON.stringify({messages:[{role:"user",content:userContent}]})
-      });
-      clearTimeout(to);
-    } catch(fe) {
-      clearTimeout(to);
-      throw {type:"network", msg: fe.name==="AbortError" ? "Koneksi timeout. Coba lagi." : "Periksa koneksi internet kamu."};
-    }
-
-    if(!res.ok) throw {type:"api", msg:"Server sibuk ("+res.status+"). Coba lagi."};
-
-    let data;
-    try { data = await res.json(); }
-    catch(e) { throw {type:"parse", msg:"Respons tidak terbaca."}; }
-
-    const txtBlock = (data.content||[]).find(b=>b.type==="text");
-    if(!txtBlock||!txtBlock.text) throw {type:"parse", msg:"Hasil kosong. Coba lagi."};
-
-    let parsed;
-    try {
-      parsed = parseResult(txtBlock.text);
-    } catch(e) {
-      throw {type:"parse", msg:"Format tidak valid. Coba lagi."};
-    }
-
-    if(!parsed.diagnosis_p1) throw {type:"parse", msg:"Hasil tidak lengkap. Coba lagi."};
-
-    clearInterval(iv);
-    state.result = parsed;
-    clearSaved();
-
-    // Send via EmailJS
-    try {
-      const f = state.form;
-      const r = parsed;
-      const loc = f.wilayahDetail||f.wilayah||"Indonesia";
-      const date = new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});
-
-      // Format rencana 30 hari
-      const rencana = ["minggu1","minggu2","minggu3","minggu4"].map((m,i)=>{
-        if(!r[m]) return "";
-        const acts = (r[m].actions||[]).map((a,j)=>`  ${j+1}. ${a}`).join("\n");
-        return `MINGGU ${i+1}: ${r[m].tema}\n${acts}`;
-      }).filter(Boolean).join("\n\n");
-
-      // Format kompetitor
-      const komp = (r.kompetitor_analisis||[]).map((k,i)=>{
-        return `Kompetitor ${i+1}: ${k.nama||k.url}\n  Kelebihan: ${k.kelebihan}\n  Kelemahan: ${k.kelemahan}\n  Peluang: ${k.peluang}`;
-      }).join("\n\n");
-
-      await emailjs.send("bgp30", "template_bgp30", {
-        user_email: f.userEmail,
-        nama_bisnis: f.namaBisnis,
-        industri: f.industri,
-        wilayah: loc,
-        tanggal: date,
-        opening_line: r.opening_line||"",
-        diagnosis_p1: r.diagnosis_p1||"",
-        diagnosis_p2: r.diagnosis_p2||"",
-        prioritas: (r.prioritas||[]).map((p,i)=>`${i+1}. ${p}`).join("\n"),
-        rencana_30_hari: rencana,
-        kompetitor: komp||"Tidak ada data kompetitor.",
-        pesan_personal: r.pesan_personal||"",
-      });
-    } catch(e) { console.log("EmailJS error:", e); }
-
-    // Submit to Formspree
-    try {
-      const fd = new FormData();
-      const fm = state.form;
-      fd.append("01_nama_bisnis", fm.namaBisnis);
-      fd.append("02_industri", fm.industri);
-      fd.append("03_wilayah", fm.wilayahDetail||fm.wilayah||"Indonesia");
-      fd.append("04_lama_bisnis", fm.lamaBisnis);
-      fd.append("05_ukuran_tim", fm.ukuranTim);
-      fd.append("06_cara_pelanggan", fm.caraPelanggan.join(", ")||"-");
-      fd.append("07_instagram", fm.instagram||"-");
-      fd.append("08_website", fm.website||"-");
-      fd.append("09_tiktok", fm.tiktok||"-");
-      fd.append("10_marketplace", fm.marketplace||"-");
-      fd.append("11_kompetitor", fm.kompetitor.filter(k=>k.trim()).join(", ")||"AI riset mandiri");
-      fd.append("12_kondisi_brand", fm.s1);
-      fd.append("13_konsistensi", fm.s2);
-      fd.append("14_feedback", fm.s3||"-");
-      fd.append("15_pelanggan_terbaik", fm.s4||"-");
-      fd.append("16_sudah_dicoba", fm.t1);
-      fd.append("17_belum_beres", fm.t2);
-      fd.append("18_kalah_kompetitor", fm.t3||"-");
-      fd.append("19_mengganjal", fm.t4||"-");
-      fd.append("20_tujuan_30_hari", fm.g1);
-      fd.append("21_prioritas", fm.g2);
-      fd.append("22_waktu", fm.g3);
-      fd.append("23_kendala", fm.g4||"-");
-      fd.append("24_diagnosis_p1", parsed.diagnosis_p1||"");
-      fd.append("25_diagnosis_p2", parsed.diagnosis_p2||"");
-      fd.append("26_prioritas_ai", (parsed.prioritas||[]).join(" | "));
-      fd.append("27_pesan_personal", parsed.pesan_personal||"");
-      fd.append("28_submitted_at", new Date().toLocaleString("id-ID"));
-      await fetch("https://formspree.io/f/mlgzqqze", {method:"POST",body:fd});
-    } catch(e) {}
-
-    setTimeout(()=>{ state.step="result"; render(); }, 600);
-
-  } catch(e) {
-    clearInterval(iv);
-    state.err = e.msg||"Terjadi kesalahan.";
-    state.errType = e.type||"network";
-    state.step = "error";
-    render();
-  }
-}
-
-function clearSaved() {
-  try{localStorage.removeItem("bgp30_form");localStorage.removeItem("bgp30_step");}catch(e){}
-}
-
-function saveForm() {
-  try{localStorage.setItem("bgp30_form",JSON.stringify(state.form));}catch(e){}
-}
-
-function saveStep() {
-  if(state.step!=="loading"&&state.step!=="error"){
-    try{localStorage.setItem("bgp30_step",state.step);}catch(e){}
-  }
-}
-
-function sf(k,v){ state.form[k]=v; saveForm(); }
-function tog(k,v){ const a=state.form[k]; state.form[k]=a.includes(v)?a.filter(x=>x!==v):[...a,v]; saveForm(); render(); }
-function go(step){ state.step=step; state.err=""; saveStep(); render(); window.scrollTo(0,0); }
-
-function doPDF() {
-  if(!state.result) return;
-  const r = state.result;
-  const f = state.form;
-  const date = new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});
-  const loc = f.wilayahDetail||f.wilayah||"Indonesia";
-
-  const weekColors = ["#F5C518","#1a1a2e","#2D6A4F","#C84B31"];
-  const weekBg = ["#FFFBE6","#f0f0f8","#E8F5E9","#FBE9E7"];
-
-  const weekHTML = ["minggu1","minggu2","minggu3","minggu4"].map((m,i)=>{
-    if(!r[m]) return "";
-    const acts = (r[m].actions||[]).map((a,j)=>`
-      <tr>
-        <td style="padding:10px 14px;border-bottom:1px solid #f0f0f0;width:28px;vertical-align:top;">
-          <div style="width:22px;height:22px;background:${weekColors[i]};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${i===0?"#1a1a2e":"#fff"};">${j+1}</div>
-        </td>
-        <td style="padding:10px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;line-height:1.6;color:#1a1a2e;">${a}</td>
-      </tr>`).join("");
-    return `
-      <div style="margin-bottom:24px;border-radius:12px;overflow:hidden;border:1.5px solid #e0e0e0;page-break-inside:avoid;">
-        <div style="background:${weekColors[i]};padding:14px 18px;display:flex;align-items:center;gap:12px;">
-          <div style="width:32px;height:32px;background:${i===0?"#1a1a2e":"rgba(255,255,255,0.2)"};border-radius:50%;display:flex;align-items:center;justify-content:center;color:${i===0?"#F5C518":"#fff"};font-size:14px;font-weight:800;flex-shrink:0;">${i+1}</div>
-          <div>
-            <p style="font-size:9px;font-weight:800;letter-spacing:0.12em;opacity:0.7;margin-bottom:2px;color:${i===0?"#1a1a2e":"#fff"};">MINGGU ${i+1}</p>
-            <p style="font-size:15px;font-weight:800;color:${i===0?"#1a1a2e":"#fff"};">${r[m].icon||""} ${r[m].tema}</p>
-          </div>
-          <div style="margin-left:auto;background:${i===0?"rgba(0,0,0,0.1)":"rgba(255,255,255,0.15)"};border-radius:8px;padding:6px 12px;">
-            <p style="font-size:11px;color:${i===0?"#1a1a2e":"#fff"};font-style:italic;">${r[m].focus||""}</p>
-          </div>
-        </div>
-        <table style="width:100%;border-collapse:collapse;background:#fff;">${acts}</table>
-      </div>`;
-  }).join("");
-
-  const kompHTML = (r.kompetitor_analisis||[]).length > 0 ? `
-    <div style="page-break-before:always;padding-top:32px;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-        <div style="width:4px;height:32px;background:#F5C518;border-radius:2px;"></div>
-        <h2 style="font-size:18px;font-weight:800;color:#1a1a2e;margin:0;">Analisis Kompetitor</h2>
-        ${r.kompetitor_riset_mandiri?'<span style="background:#FFFBE6;border:1px solid #F5C518;color:#1a1a2e;font-size:9px;font-weight:800;padding:3px 10px;border-radius:99px;letter-spacing:0.08em;">RISET AI</span>':""}
-      </div>
-      ${(r.kompetitor_analisis||[]).map((k,i)=>`
-        <div style="margin-bottom:20px;border-radius:12px;overflow:hidden;border:1.5px solid #e0e0e0;page-break-inside:avoid;">
-          <div style="background:#1a1a2e;padding:14px 20px;display:flex;align-items:center;gap:12px;">
-            <div style="width:32px;height:32px;background:#F5C518;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#1a1a2e;flex-shrink:0;">${i+1}</div>
-            <div>
-              <p style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;margin-bottom:2px;">KOMPETITOR ${i+1}</p>
-              <p style="font-size:15px;font-weight:800;color:#fff;">${k.nama||k.url}</p>
-              ${k.nama&&k.url?`<p style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:2px;">${k.url}</p>`:""}
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;background:#fff;">
-            <div style="padding:16px;border-right:1px solid #f0f0f0;">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
-                <div style="width:8px;height:8px;border-radius:50%;background:#4CAF50;"></div>
-                <p style="font-size:9px;font-weight:800;color:#bbb;letter-spacing:0.1em;">KELEBIHAN</p>
-              </div>
-              <p style="font-size:12px;line-height:1.6;color:#1a1a2e;">${k.kelebihan}</p>
-            </div>
-            <div style="padding:16px;border-right:1px solid #f0f0f0;">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
-                <div style="width:8px;height:8px;border-radius:50%;background:#F44336;"></div>
-                <p style="font-size:9px;font-weight:800;color:#bbb;letter-spacing:0.1em;">KELEMAHAN</p>
-              </div>
-              <p style="font-size:12px;line-height:1.6;color:#1a1a2e;">${k.kelemahan}</p>
-            </div>
-            <div style="padding:16px;background:#FFFBE6;">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
-                <div style="width:8px;height:8px;border-radius:50%;background:#F5C518;"></div>
-                <p style="font-size:9px;font-weight:800;color:#bbb;letter-spacing:0.1em;">PELUANG UNTUK KAMU</p>
-              </div>
-              <p style="font-size:12px;line-height:1.6;color:#1a1a2e;font-weight:600;">${k.peluang}</p>
-            </div>
-          </div>
-        </div>`).join("")}
-    </div>` : "";
-
-  const html = `<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8"/>
-<title>Brand Growth Plan 30 — ${f.namaBisnis}</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-@page{margin:16mm;size:A4;}
-.page{max-width:700px;margin:0 auto;}
-@media print{body{margin:0;}.no-print{display:none;}}
-</style>
-</head>
-<body>
-<div class="page">
-
-  <!-- COVER -->
-  <div style="background:#1a1a2e;border-radius:16px;padding:48px 44px 40px;position:relative;overflow:hidden;margin-bottom:32px;">
-    <div style="position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:#F5C518;opacity:0.07;"></div>
-    <div style="position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;border:3px solid #F5C518;opacity:0.1;"></div>
-    <div style="display:inline-block;background:#F5C518;color:#1a1a2e;font-size:9px;font-weight:800;padding:5px 14px;border-radius:99px;letter-spacing:0.12em;margin-bottom:28px;">BRAND GROWTH PLAN 30</div>
-    <h1 style="font-size:36px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-0.02em;margin-bottom:8px;">${f.namaBisnis}</h1>
-    <p style="font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:40px;">${f.industri} · ${loc}</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;">
-      ${[["Dibuat oleh","Budi Pranoto"],["Tanggal",date],["Durasi","30 Hari"],["Wilayah",loc]].map(([k,v])=>`
-        <div>
-          <p style="font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-bottom:4px;text-transform:uppercase;">${k}</p>
-          <p style="font-size:13px;font-weight:600;color:#fff;">${v}</p>
-        </div>`).join("")}
-    </div>
-  </div>
-
-  <!-- RINGKASAN EKSEKUTIF -->
-  <div style="margin-bottom:32px;page-break-inside:avoid;">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-      <div style="width:4px;height:32px;background:#F5C518;border-radius:2px;"></div>
-      <h2 style="font-size:18px;font-weight:800;color:#1a1a2e;margin:0;">Ringkasan Eksekutif</h2>
-    </div>
-    ${r.opening_line?`
-    <div style="border-left:4px solid #F5C518;padding:14px 20px;background:#FFFBE6;border-radius:0 10px 10px 0;margin-bottom:20px;">
-      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;line-height:1.75;color:#1a1a2e;">${r.opening_line}</p>
-    </div>`:""}
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-      <div style="background:#F8F4EC;border-radius:12px;padding:20px;border-left:4px solid #F5C518;">
-        <p style="font-size:9px;font-weight:800;letter-spacing:0.12em;color:#bbb;margin-bottom:10px;">KONDISI SAAT INI</p>
-        <p style="font-size:13px;line-height:1.8;color:#1a1a2e;">${r.diagnosis_p1||""}</p>
-      </div>
-      <div style="background:#F8F4EC;border-radius:12px;padding:20px;border-left:4px solid #1a1a2e;">
-        <p style="font-size:9px;font-weight:800;letter-spacing:0.12em;color:#bbb;margin-bottom:10px;">AKAR MASALAH & PELUANG</p>
-        <p style="font-size:13px;line-height:1.8;color:#1a1a2e;">${r.diagnosis_p2||""}</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROFIL BISNIS -->
-  <div style="margin-bottom:32px;background:#fff;border:1.5px solid #e0e0e0;border-radius:12px;padding:24px;page-break-inside:avoid;">
-    <p style="font-size:9px;font-weight:800;letter-spacing:0.12em;color:#bbb;margin-bottom:16px;">PROFIL BISNIS</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
-      ${[
-        ["Industri",f.industri],
-        ["Wilayah",loc],
-        ["Lama Berjalan",f.lamaBisnis],
-        ["Ukuran Tim",f.ukuranTim],
-        ["Instagram",f.instagram||"-"],
-        ["Platform Lain",[f.website,f.tiktok,f.marketplace].filter(Boolean).join(", ")||"-"],
-      ].map(([k,v])=>`
-        <div>
-          <p style="font-size:10px;color:#bbb;font-weight:600;margin-bottom:3px;">${k}</p>
-          <p style="font-size:13px;font-weight:600;color:#1a1a2e;">${v}</p>
-        </div>`).join("")}
-    </div>
-  </div>
-
-  <!-- PRIORITAS -->
-  <div style="margin-bottom:32px;page-break-inside:avoid;">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-      <div style="width:4px;height:32px;background:#F5C518;border-radius:2px;"></div>
-      <h2 style="font-size:18px;font-weight:800;color:#1a1a2e;margin:0;">Prioritas 48 Jam Pertama</h2>
-    </div>
-    <div style="background:#F5C518;border-radius:12px;padding:20px 24px;">
-      ${(r.prioritas||[]).map((p,i)=>`
-        <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:${i<(r.prioritas||[]).length-1?"14":"0"}px;">
-          <div style="width:28px;height:28px;background:#1a1a2e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#F5C518;flex-shrink:0;">${i+1}</div>
-          <p style="font-size:14px;font-weight:600;line-height:1.55;padding-top:4px;">${p}</p>
-        </div>`).join("")}
-    </div>
-  </div>
-
-  <!-- RENCANA 30 HARI -->
-  <div style="margin-bottom:32px;">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-      <div style="width:4px;height:32px;background:#F5C518;border-radius:2px;"></div>
-      <h2 style="font-size:18px;font-weight:800;color:#1a1a2e;margin:0;">Rencana 30 Hari</h2>
-    </div>
-    ${weekHTML}
-  </div>
-
-  <!-- KOMPETITOR -->
-  ${kompHTML}
-
-  <!-- PESAN PERSONAL -->
-  <div style="margin-top:32px;background:#F8F4EC;border-radius:16px;padding:28px 32px;page-break-inside:avoid;">
-    <p style="font-size:9px;font-weight:800;letter-spacing:0.12em;color:#bbb;margin-bottom:16px;">PESAN DARI SAYA</p>
-    <p style="font-size:15px;line-height:1.85;font-style:italic;color:#1a1a2e;margin-bottom:24px;">${r.pesan_personal||""}</p>
-    <div style="display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid #e0e0e0;">
-      <div style="width:48px;height:48px;background:#F5C518;border:2px solid #1a1a2e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex-shrink:0;">B</div>
-      <div>
-        <p style="font-size:15px;font-weight:800;">Budi Pranoto</p>
-        <p style="font-size:12px;color:#6b6b6b;">Digital & Brand Strategist</p>
-        <a href="https://www.linkedin.com/in/budipranoto/" style="font-size:11px;color:#0077B5;text-decoration:none;">linkedin.com/in/budipranoto</a>
-      </div>
-      <div style="margin-left:auto;text-align:right;">
-        <a href="https://wa.me/6281261728338" style="display:inline-block;background:#25D366;color:#fff;padding:10px 20px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;">Konsultasi via WhatsApp</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div style="margin-top:24px;padding-top:16px;border-top:1px solid #e0e0e0;display:flex;justify-content:space-between;align-items:center;">
-    <p style="font-size:10px;color:#bbb;">Brand Growth Plan 30 · ${f.namaBisnis} · ${loc}</p>
-    <p style="font-size:10px;color:#bbb;">${date}</p>
-  </div>
-
-</div>
-</body>
-</html>`;
-
-  const blob = new Blob([html],{type:"text/html"});
-  const url = URL.createObjectURL(blob);
-  const win = window.open(url,"_blank");
-  if(win) win.onload = ()=>setTimeout(()=>win.print(),800);
-  setTimeout(()=>URL.revokeObjectURL(url),10000);
-}
-
-function updateLoadMsg() {
-  const el = document.getElementById("load-msg");
-  if(el) el.textContent = LOAD_MSGS[state.loadIdx];
-}
-
-function makeInput(attrs, key) {
-  const el = document.createElement("input");
-  Object.entries(attrs).forEach(([k,v])=>{ if(k==="class") el.className=v; else if(k==="style") el.style.cssText=v; else el.setAttribute(k,v); });
-  el.value = state.form[key]||"";
-  el.addEventListener("input", e=>sf(key, e.target.value));
-  return el;
-}
-
-function makeTA(placeholder, key, minH="90px") {
-  const el = document.createElement("textarea");
-  el.className = "ta";
-  el.placeholder = placeholder;
-  el.style.minHeight = minH;
-  el.value = state.form[key]||"";
-  el.addEventListener("input", e=>sf(key, e.target.value));
-  return el;
-}
-
-function scoreInput(text, min=80) {
+function scoreInput(text,min=80){
   if(!text) return {score:0,label:"",color:""};
-  const len = text.trim().length;
-  if(len<30) return {score:10,label:"Terlalu singkat",color:"#e63946"};
-  if(len<min) return {score:40,label:"Perlu lebih detail",color:"#ffb300"};
-  if(len<min*2) return {score:75,label:"Cukup baik",color:"#ffb300"};
+  const l=text.trim().length;
+  if(l<30) return {score:10,label:"Terlalu singkat",color:"#e63946"};
+  if(l<min) return {score:40,label:"Perlu lebih detail",color:"#ffb300"};
+  if(l<min*2) return {score:75,label:"Cukup baik",color:"#ffb300"};
   return {score:100,label:"Detail ✓",color:"#4caf50"};
 }
 
-function h(tag, attrs, ...children) {
-  const el = document.createElement(tag);
-  if(attrs) Object.entries(attrs).forEach(([k,v])=>{ if(k==="class") el.className=v; else if(k.startsWith("on")) el.addEventListener(k.slice(2).toLowerCase(),v); else el.setAttribute(k,v); });
-  children.flat().forEach(c=>{ if(c==null||c===false) return; el.appendChild(typeof c==="string"?document.createTextNode(c):c); });
-  return el;
+function buildUserPrompt(f){
+  const komp=f.kompetitor.filter(k=>k.trim());
+  const loc=f.wilayahDetail||f.wilayah||"Indonesia";
+  return [
+    "Bisnis: "+f.namaBisnis+" | Industri: "+f.industri+" | Wilayah: "+loc,
+    "Lama: "+f.lamaBisnis+" | Tim: "+f.ukuranTim,
+    "Platform: IG="+(f.instagram||"-")+" Web="+(f.website||"-")+" TikTok="+(f.tiktok||"-")+" Marketplace="+(f.marketplace||"-"),
+    komp.length>0?"Kompetitor: "+komp.join(", "):"Riset 2-3 kompetitor utama untuk "+f.industri+" di "+loc,
+    "Kondisi brand: "+f.s1,
+    "Konsistensi: "+f.s2+(f.s2d?" - "+f.s2d:""),
+    "Feedback: "+(f.s3||"-"),
+    "Pelanggan terbaik: "+(f.s4||"-"),
+    "Sudah dicoba: "+f.t1,
+    "Belum beres: "+f.t2,
+    "Kalah kompetitor: "+(f.t3||"-"),
+    "Mengganjal: "+(f.t4||"-"),
+    "Tujuan 30 hari: "+f.g1,
+    "Prioritas: "+f.g2+" | Waktu: "+f.g3+" | Kendala: "+(f.g4||"-"),
+  ].join("\n");
 }
 
-function Opt(label, sel, onSel, multi=false) {
-  const d = h("div",{class:"opt"+(sel?" sel":""),onclick:onSel},
-    h("div",{class:multi?"chk":"dot"}, multi&&sel?"✓": (!multi&&sel)?h("div",{style:"width:7px;height:7px;border-radius:50%;background:white;"}):""),
-    h("p",{class:"opt-lbl"},label)
+function parseResult(txt){
+  let t=txt.replace(/```json\s*/gi,"").replace(/```\s*/g,"").trim();
+  const a=t.indexOf("{"),b=t.lastIndexOf("}");
+  if(a>-1&&b>-1) t=t.slice(a,b+1);
+  try{ return JSON.parse(t); }catch(_){}
+  // Escape unescaped newlines inside string values
+  t=t.replace(/:\s*"([\s\S]*?)(?="(?:\s*[,}\]]))/g,function(m,v){ return m.replace(v,v.replace(/\r?\n/g,"\\n")); });
+  try{ return JSON.parse(t); }catch(_){}
+  // Last resort: flatten all whitespace
+  t=t.replace(/\r?\n/g," ").replace(/\s+/g," ");
+  return JSON.parse(t);
+}
+
+// ── AI Call ───────────────────────────────────────────────────
+async function runAI(isRetry){
+  state.step="loading"; state.loadIdx=0;
+  if(isRetry) state.retryCount++; else state.retryCount=0;
+  state.errType=null; state.err="";
+  render();
+  let i=0;
+  const iv=setInterval(()=>{ i++; if(i<LOAD_MSGS.length){state.loadIdx=i;const el=document.getElementById("load-msg");if(el)el.textContent=LOAD_MSGS[i];} },1800);
+  try{
+    const ctrl=new AbortController();
+    const to=setTimeout(()=>ctrl.abort(),45000);
+    let res;
+    try{
+      res=await fetch("/.netlify/functions/claude",{method:"POST",headers:{"Content-Type":"application/json"},signal:ctrl.signal,body:JSON.stringify({messages:[{role:"user",content:buildUserPrompt(state.form)}]})});
+      clearTimeout(to);
+    }catch(fe){clearTimeout(to);throw{type:"network",msg:fe.name==="AbortError"?"Koneksi timeout. Coba lagi.":"Periksa koneksi internet kamu."};}
+    if(!res.ok) throw{type:"api",msg:"Server sibuk ("+res.status+"). Coba lagi."};
+    let data; try{data=await res.json();}catch(e){throw{type:"parse",msg:"Respons tidak terbaca."};}
+    const txtBlock=(data.content||[]).find(b=>b.type==="text");
+    if(!txtBlock||!txtBlock.text) throw{type:"parse",msg:"Hasil kosong. Coba lagi."};
+    let parsed; try{parsed=parseResult(txtBlock.text);}catch(e){throw{type:"parse",msg:"Format tidak valid. Coba lagi."};}
+    if(!parsed.diagnosis_p1) throw{type:"parse",msg:"Hasil tidak lengkap. Coba lagi."};
+    clearInterval(iv);
+    state.result=parsed;
+    try{localStorage.removeItem("bgp30_form");localStorage.removeItem("bgp30_step");}catch(e){}
+
+    // EmailJS
+    try{
+      const f=state.form, r=parsed;
+      const loc=f.wilayahDetail||f.wilayah||"Indonesia";
+      const date=new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});
+      const rencana=["minggu1","minggu2","minggu3","minggu4"].map((m,i)=>{
+        if(!r[m]) return "";
+        return "MINGGU "+(i+1)+": "+r[m].tema+"\n"+(r[m].actions||[]).map((a,j)=>"  "+(j+1)+". "+a).join("\n");
+      }).filter(Boolean).join("\n\n");
+      const komp=(r.kompetitor_analisis||[]).map((k,i)=>"Kompetitor "+(i+1)+": "+(k.nama||k.url)+"\n  Kelebihan: "+k.kelebihan+"\n  Kelemahan: "+k.kelemahan+"\n  Peluang: "+k.peluang).join("\n\n");
+      await emailjs.send("bgp30","template_bgp30",{
+        user_email:f.userEmail,nama_bisnis:f.namaBisnis,industri:f.industri,
+        wilayah:loc,tanggal:date,opening_line:r.opening_line||"",
+        diagnosis_p1:r.diagnosis_p1||"",diagnosis_p2:r.diagnosis_p2||"",
+        prioritas:(r.prioritas||[]).map((p,i)=>(i+1)+". "+p).join("\n"),
+        rencana_30_hari:rencana,kompetitor:komp||"Tidak ada data.",
+        pesan_personal:r.pesan_personal||"",
+      });
+    }catch(e){console.log("EmailJS:",e);}
+
+    // Formspree
+    try{
+      const f=state.form, r=parsed;
+      const fd=new FormData();
+      fd.append("01_nama_bisnis",f.namaBisnis);fd.append("02_industri",f.industri);
+      fd.append("03_wilayah",f.wilayahDetail||f.wilayah||"Indonesia");
+      fd.append("04_email",f.userEmail);fd.append("05_lama_bisnis",f.lamaBisnis);
+      fd.append("06_ukuran_tim",f.ukuranTim);fd.append("07_cara_pelanggan",f.caraPelanggan.join(", ")||"-");
+      fd.append("08_kondisi_brand",f.s1);fd.append("09_konsistensi",f.s2);
+      fd.append("10_feedback",f.s3||"-");fd.append("11_pelanggan_terbaik",f.s4||"-");
+      fd.append("12_sudah_dicoba",f.t1);fd.append("13_belum_beres",f.t2);
+      fd.append("14_tujuan",f.g1);fd.append("15_prioritas",f.g2);
+      fd.append("16_diagnosis",r.diagnosis_p1+" "+r.diagnosis_p2);
+      fd.append("17_submitted_at",new Date().toLocaleString("id-ID"));
+      await fetch("https://formspree.io/f/mlgzqqze",{method:"POST",body:fd});
+    }catch(e){}
+
+    setTimeout(()=>{ state.step="result"; render(); },600);
+  }catch(e){
+    clearInterval(iv);
+    state.err=e.msg||"Terjadi kesalahan.";
+    state.errType=e.type||"network";
+    state.step="error"; render();
+  }
+}
+
+// ── PDF ───────────────────────────────────────────────────────
+function doPDF(){
+  if(!state.result){ state.pdfLoading=false; return; }
+  try{
+  const r=state.result, f=state.form;
+  const date=new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});
+  const loc=f.wilayahDetail||f.wilayah||"Indonesia";
+  const wColors=["#F5C518","#1a1a2e","#2D6A4F","#C84B31"];
+
+  const weekHTML=["minggu1","minggu2","minggu3","minggu4"].map((m,i)=>{
+    if(!r[m]) return "";
+    const acts=(r[m].actions||[]).map((a,j)=>`<tr><td style="padding:10px 14px;border-bottom:1px solid #f0f0f0;width:36px;vertical-align:top;"><div style="width:22px;height:22px;background:${wColors[i]};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${i===0?"#1a1a2e":"#fff"};">${j+1}</div></td><td style="padding:10px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;line-height:1.6;color:#1a1a2e;">${a}</td></tr>`).join("");
+    return `<div style="margin-bottom:20px;border-radius:12px;overflow:hidden;border:1.5px solid #e0e0e0;page-break-inside:avoid;"><div style="background:${wColors[i]};padding:14px 18px;display:flex;align-items:center;gap:12px;"><div style="width:30px;height:30px;background:${i===0?"#1a1a2e":"rgba(255,255,255,0.2)"};border-radius:50%;display:flex;align-items:center;justify-content:center;color:${i===0?"#F5C518":"#fff"};font-size:14px;font-weight:800;flex-shrink:0;">${i+1}</div><div><p style="font-size:9px;font-weight:800;letter-spacing:0.12em;opacity:0.7;margin-bottom:2px;color:${i===0?"#1a1a2e":"#fff"};">MINGGU ${i+1}</p><p style="font-size:15px;font-weight:800;color:${i===0?"#1a1a2e":"#fff"};">${r[m].icon||""} ${r[m].tema}</p></div>${r[m].focus?`<div style="margin-left:auto;background:${i===0?"rgba(0,0,0,0.1)":"rgba(255,255,255,0.15)"};border-radius:8px;padding:6px 12px;"><p style="font-size:11px;color:${i===0?"#1a1a2e":"#fff"};font-style:italic;">${r[m].focus}</p></div>`:""}</div><table style="width:100%;border-collapse:collapse;background:#fff;">${acts}</table></div>`;
+  }).join("");
+
+  const kompHTML=(r.kompetitor_analisis||[]).length>0?`<div style="page-break-before:always;padding-top:32px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><div style="width:4px;height:32px;background:#F5C518;border-radius:2px;"></div><h2 style="font-size:18px;font-weight:800;color:#1a1a2e;margin:0;">Analisis Kompetitor</h2>${r.kompetitor_riset_mandiri?'<span style="background:#FFFBE6;border:1px solid #F5C518;color:#1a1a2e;font-size:9px;font-weight:800;padding:3px 10px;border-radius:99px;">RISET AI</span>':""}</div>${(r.kompetitor_analisis||[]).map((k,i)=>`<div style="margin-bottom:20px;border-radius:12px;overflow:hidden;border:1.5px solid #e0e0e0;page-break-inside:avoid;"><div style="background:#1a1a2e;padding:14px 20px;display:flex;align-items:center;gap:12px;"><div style="width:30px;height:30px;background:#F5C518;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#1a1a2e;flex-shrink:0;">${i+1}</div><div><p style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.1em;margin-bottom:2px;">KOMPETITOR ${i+1}</p><p style="font-size:15px;font-weight:800;color:#fff;">${k.nama||k.url}</p>${k.nama&&k.url?`<p style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:2px;">${k.url}</p>`:""}</div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;background:#fff;"><div style="padding:16px;border-right:1px solid #f0f0f0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;"><div style="width:8px;height:8px;border-radius:50%;background:#4CAF50;"></div><p style="font-size:9px;font-weight:800;color:#bbb;letter-spacing:0.1em;">KELEBIHAN</p></div><p style="font-size:12px;line-height:1.6;">${k.kelebihan}</p></div><div style="padding:16px;border-right:1px solid #f0f0f0;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;"><div style="width:8px;height:8px;border-radius:50%;background:#F44336;"></div><p style="font-size:9px;font-weight:800;color:#bbb;letter-spacing:0.1em;">KELEMAHAN</p></div><p style="font-size:12px;line-height:1.6;">${k.kelemahan}</p></div><div style="padding:16px;background:#FFFBE6;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;"><div style="width:8px;height:8px;border-radius:50%;background:#F5C518;"></div><p style="font-size:9px;font-weight:800;color:#bbb;letter-spacing:0.1em;">PELUANG</p></div><p style="font-size:12px;line-height:1.6;font-weight:600;">${k.peluang}</p></div></div></div>`).join("")}</div>`:"";
+
+  const prioHTML=(r.prioritas||[]).map((p,i)=>`<div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:${i<(r.prioritas||[]).length-1?"14":"0"}px;"><div style="width:28px;height:28px;background:#1a1a2e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#F5C518;flex-shrink:0;">${i+1}</div><p style="font-size:14px;font-weight:600;line-height:1.55;padding-top:4px;">${p}</p></div>`).join("");
+
+  const html=`<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"/><title>Brand Growth Plan 30 — ${f.namaBisnis}</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/><style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;}@page{margin:16mm;size:A4;}.page{max-width:700px;margin:0 auto;}</style></head><body><div class="page">
+  <div style="background:#1a1a2e;border-radius:16px;padding:48px 44px 40px;position:relative;overflow:hidden;margin-bottom:32px;"><div style="position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:#F5C518;opacity:0.07;"></div><div style="display:inline-block;background:#F5C518;color:#1a1a2e;font-size:9px;font-weight:800;padding:5px 14px;border-radius:99px;letter-spacing:0.12em;margin-bottom:28px;">BRAND GROWTH PLAN 30</div><h1 style="font-size:36px;font-weight:800;color:#fff;line-height:1.15;letter-spacing:-0.02em;margin-bottom:8px;">${f.namaBisnis}</h1><p style="font-size:15px;color:rgba(255,255,255,0.5);margin-bottom:40px;">${f.industri} · ${loc}</p><div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;">${[["Dibuat oleh","Budi Pranoto"],["Tanggal",date],["Durasi","30 Hari"],["Wilayah",loc]].map(([k,v])=>`<div><p style="font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.1em;margin-bottom:4px;text-transform:uppercase;">${k}</p><p style="font-size:13px;font-weight:600;color:#fff;">${v}</p></div>`).join("")}</div></div>
+  <div style="margin-bottom:32px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;"><div style="width:4px;height:32px;background:#F5C518;border-radius:2px;"></div><h2 style="font-size:18px;font-weight:800;color:#1a1a2e;margin:0;">Ringkasan Eksekutif</h2></div>${r.opening_line?`<div style="border-left:4px solid #F5C518;padding:14px 20px;background:#FFFBE6;border-radius:0 10px 10px 0;margin-bottom:20px;"><p style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;line-height:1.75;">${r.opening_line}</p></div>`:""}<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;"><div style="background:#F8F4EC;border-radius:12px;padding:20px;border-left:4px solid #F5C518;"><p style="font-size:9px;font-weight:800;letter-spacing:0.12em;color:#bbb;margin-bottom:10px;">KONDISI SAAT INI</p><p style="font-size:13px;line-height:1.8;">${r.diagnosis_p1||""}</p></div><div style="background:#F8F4EC;border-radius:12px;padding:20px;border-left:4px solid #1a1a2e;"><p style="font-size:9px;font-weight:800;letter-spacing:0.12em;color:#bbb;margin-bottom:10px;">AKAR MASALAH & PELUANG</p><p style="font-size:13px;line-height:1.8;">${r.diagnosis_p2||""}</p></div></div></div>
+  <div style="margin-bottom:32px;background:#fff;border:1.5px solid #e0e0e0;border-radius:12px;padding:24px;page-break-inside:avoid;"><p style="font-size:9px;font-weight:800;letter-spacing:0.12em;color:#bbb;margin-bottom:16px;">PROFIL BISNIS</p><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">${[["Industri",f.industri],["Wilayah",loc],["Lama Berjalan",f.lamaBisnis],["Ukuran Tim",f.ukuranTim],["Instagram",f.instagram||"-"],["Platform Lain",[f.website,f.tiktok,f.marketplace].filter(Boolean).join(", ")||"-"]].map(([k,v])=>`<div><p style="font-size:10px;color:#bbb;font-weight:600;margin-bottom:3px;">${k}</p><p style="font-size:13px;font-weight:600;">${v}</p></div>`).join("")}</div></div>
+  <div style="margin-bottom:32px;page-break-inside:avoid;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;"><div style="width:4px;height:32px;background:#F5C518;border-radius:2px;"></div><h2 style="font-size:18px;font-weight:800;color:#1a1a2e;margin:0;">Prioritas 48 Jam Pertama</h2></div><div style="background:#F5C518;border-radius:12px;padding:20px 24px;">${prioHTML}</div></div>
+  <div style="margin-bottom:32px;"><div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><div style="width:4px;height:32px;background:#F5C518;border-radius:2px;"></div><h2 style="font-size:18px;font-weight:800;color:#1a1a2e;margin:0;">Rencana 30 Hari</h2></div>${weekHTML}</div>
+  ${kompHTML}
+  <div style="margin-top:32px;background:#F8F4EC;border-radius:16px;padding:28px 32px;page-break-inside:avoid;"><p style="font-size:9px;font-weight:800;letter-spacing:0.12em;color:#bbb;margin-bottom:16px;">PESAN DARI SAYA</p><p style="font-size:15px;line-height:1.85;font-style:italic;color:#1a1a2e;margin-bottom:24px;">${r.pesan_personal||""}</p><div style="display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid #e0e0e0;"><div style="width:48px;height:48px;background:#F5C518;border:2px solid #1a1a2e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex-shrink:0;">B</div><div><p style="font-size:15px;font-weight:800;">Budi Pranoto</p><p style="font-size:12px;color:#6b6b6b;">Digital & Brand Strategist</p><a href="${LI}" style="font-size:11px;color:#0077B5;text-decoration:none;">linkedin.com/in/budipranoto</a></div><div style="margin-left:auto;"><a href="https://wa.me/${WA}" style="display:inline-block;background:#25D366;color:#fff;padding:10px 20px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;">Konsultasi via WhatsApp</a></div></div></div>
+  <div style="margin-top:24px;padding-top:16px;border-top:1px solid #e0e0e0;display:flex;justify-content:space-between;"><p style="font-size:10px;color:#bbb;">Brand Growth Plan 30 · ${f.namaBisnis} · ${loc}</p><p style="font-size:10px;color:#bbb;">${date}</p></div>
+  </div></body></html>`;
+
+  const blob=new Blob([html],{type:"text/html"});
+  const url=URL.createObjectURL(blob);
+  // Use anchor click to avoid popup blocker
+  const a=document.createElement("a");
+  a.href=url; a.target="_blank"; a.rel="noopener";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  // Reset button state after short delay
+  setTimeout(()=>{ state.pdfLoading=false; render(); URL.revokeObjectURL(url); },2000);
+  }catch(e){ console.error("PDF error:",e); state.pdfLoading=false; render(); }
+}
+
+// ── DOM Builders ──────────────────────────────────────────────
+function el(tag,attrs,...kids){
+  const e=document.createElement(tag);
+  if(attrs) Object.entries(attrs).forEach(([k,v])=>{
+    if(k==="cls") e.className=v;
+    else if(k==="css") e.style.cssText=v;
+    else if(k.startsWith("on")) e.addEventListener(k.slice(2),v);
+    else e.setAttribute(k,v);
+  });
+  kids.flat().forEach(k=>{ if(k==null||k===false) return; e.appendChild(typeof k==="string"?document.createTextNode(k):k); });
+  return e;
+}
+
+function inp(key,attrs){
+  const e=document.createElement("input");
+  e.className="inp";
+  if(attrs) Object.entries(attrs).forEach(([k,v])=>{ if(k==="css") e.style.cssText=v; else e.setAttribute(k,v); });
+  e.value=state.form[key]||"";
+  e.addEventListener("input",ev=>sf(key,ev.target.value));
+  return e;
+}
+
+function ta(key,placeholder,minH){
+  const e=document.createElement("textarea");
+  e.className="ta"; e.placeholder=placeholder;
+  if(minH) e.style.minHeight=(typeof minH==="number"?minH+"px":minH);
+  e.value=state.form[key]||"";
+  e.addEventListener("input",ev=>sf(key,ev.target.value));
+  return e;
+}
+
+function qta(key,placeholder,minChars){
+  const val=state.form[key]||"";
+  const q=scoreInput(val,minChars||80);
+  const wrap=document.createElement("div");
+  const t=ta(key,placeholder);
+  // Real-time quality bar update without full re-render
+  t.addEventListener("input",ev=>{
+    const nq=scoreInput(ev.target.value,minChars||80);
+    const barWrap=wrap.querySelector(".qta-bar");
+    const fill=wrap.querySelector(".qta-fill");
+    const lbl=wrap.querySelector(".qta-lbl");
+    if(ev.target.value.length>0){
+      if(barWrap) barWrap.style.display="flex";
+      if(fill){ fill.style.width=nq.score+"%"; fill.style.background=nq.color; }
+      if(lbl){ lbl.textContent=nq.label; lbl.style.color=nq.color; }
+    } else {
+      if(barWrap) barWrap.style.display="none";
+    }
+  });
+  wrap.appendChild(t);
+  const bar=el("div",{cls:"qta-bar",css:"display:"+(val.length>0?"flex":"none")+";align-items:center;justify-content:space-between;margin-top:4px;"},
+    el("div",{css:"flex:1;height:3px;background:#E8E4DA;border-radius:99px;margin-right:8px;overflow:hidden;"},
+      el("div",{cls:"qta-fill",css:"height:100%;width:"+q.score+"%;background:"+q.color+";border-radius:99px;transition:width 0.25s,background 0.25s;"})
+    ),
+    el("span",{cls:"qta-lbl",css:"font-size:11px;color:"+q.color+";font-weight:600;white-space:nowrap;"},q.label)
+  );
+  wrap.appendChild(bar);
+  return wrap;
+}
+
+function opt(label,sel,onClick,multi){
+  const d=el("div",{cls:"opt"+(sel?" sel":""),onclick:onClick},
+    el("div",{cls:multi?"chk":"dot"},multi&&sel?"✓":(!multi&&sel)?el("div",{css:"width:7px;height:7px;border-radius:50%;background:white;"}):""),
+    el("p",{cls:"opt-lbl"},label)
   );
   return d;
 }
 
-function QTA(value, onChange, placeholder, minChars=80) {
-  const q = scoreInput(value, minChars);
-  const wrap = h("div",null,
-    h("textarea",{class:"ta",placeholder,oninput:onChange},value)
+function progBar(pct,label,s,t){
+  return el("div",{cls:"prog-wrap"},
+    el("div",{cls:"prog-row"},
+      el("span",{css:"font-size:11px;font-weight:700;color:#6b6b6b;letter-spacing:0.06em;text-transform:uppercase;"},label),
+      el("span",{css:"font-size:11px;font-weight:700;color:#bbb;"},s+"/"+t)
+    ),
+    el("div",{cls:"prog-track"},el("div",{cls:"prog-fill",css:`width:${pct}%;`}))
   );
-  if(value && value.length > 0) {
-    const bar = h("div",{style:"display:flex;align-items:center;justify-content:space-between;margin-top:4px;"},
-      h("div",{style:"flex:1;height:3px;background:#E8E4DA;border-radius:99px;margin-right:8px;overflow:hidden;"},
-        h("div",{style:`height:100%;width:${q.score}%;background:${q.color};border-radius:99px;transition:all 0.3s;`})
-      ),
-      h("span",{style:`font-size:11px;color:${q.color};font-weight:600;white-space:nowrap;`},q.label)
-    );
-    wrap.appendChild(bar);
-  }
-  return wrap;
 }
 
-function WkCard(n, data) {
-  const card = h("div",{class:"week-card"},
-    h("div",{class:"week-head"},
-      h("div",{class:"week-num"},String(n)),
-      h("div",null,
-        h("p",{style:"font-size:10px;font-weight:700;color:#1a1a2e;opacity:0.55;letter-spacing:0.08em;"},"MINGGU "+n),
-        h("p",{style:"font-size:14px;font-weight:800;color:#1a1a2e;"},(data.icon||"")+" "+data.tema)
+function wkCard(n,data){
+  const card=el("div",{cls:"week-card"},
+    el("div",{cls:"week-head"},
+      el("div",{cls:"week-num"},String(n)),
+      el("div",null,
+        el("p",{css:"font-size:10px;font-weight:700;color:#1a1a2e;opacity:0.55;letter-spacing:0.08em;"},"MINGGU "+n),
+        el("p",{css:"font-size:14px;font-weight:800;color:#1a1a2e;"},(data.icon||"")+" "+data.tema)
       )
     )
   );
-  if(data.focus) card.appendChild(h("div",{style:"padding:8px 14px;background:#fafaf8;border-bottom:1px solid #E8E4DA;"},h("p",{style:"font-size:12px;color:#6b6b6b;font-style:italic;"},data.focus)));
+  if(data.focus) card.appendChild(el("div",{css:"padding:8px 14px;background:#fafaf8;border-bottom:1px solid #E8E4DA;"},el("p",{css:"font-size:12px;color:#6b6b6b;font-style:italic;"},data.focus)));
   (data.actions||[]).forEach(a=>{
-    card.appendChild(h("div",{class:"week-item"},
-      h("div",{class:"bullet"}),
-      h("p",{style:"font-size:13px;line-height:1.5;color:#1a1a2e;"},a)
-    ));
+    card.appendChild(el("div",{cls:"week-item"},el("div",{cls:"bullet"}),el("p",{css:"font-size:13px;line-height:1.5;color:#1a1a2e;"},a)));
   });
   return card;
 }
 
-function ProgBar(pct, label, s, t) {
-  return h("div",{class:"prog-wrap"},
-    h("div",{class:"prog-row"},
-      h("span",{style:"font-size:11px;font-weight:700;color:#6b6b6b;letter-spacing:0.06em;text-transform:uppercase;"},label),
-      h("span",{style:"font-size:11px;font-weight:700;color:#bbb;"},s+"/"+t)
-    ),
-    h("div",{class:"prog-track"},h("div",{class:"prog-fill",style:`width:${pct}%;`}))
-  );
-}
-
-function CreditLine(light=false) {
-  const p = h("p",{style:`text-align:center;font-size:11px;color:${light?"rgba(255,255,255,0.4)":"#bbb"};`},
+function creditLine(){
+  return el("p",{css:"text-align:center;font-size:11px;color:#bbb;"},
     "Created by ",
-    h("a",{href:LI,target:"_blank",rel:"noreferrer",style:`color:${light?"#F5C518":"#1a1a2e"};font-weight:700;text-decoration:none;border-bottom:1px solid ${light?"#F5C518":"#1a1a2e"}66;`},"Budi Pranoto"),
+    el("a",{href:LI,target:"_blank",rel:"noreferrer",css:"color:#1a1a2e;font-weight:700;text-decoration:none;border-bottom:1px solid #1a1a2e66;"},"Budi Pranoto"),
     " · Digital & Brand Strategist"
   );
-  return p;
 }
 
-function renderSales() {
-  const f = state.form;
-  return h("div",{style:"background:#F8F4EC;min-height:100vh;"},
-    h("div",{class:"shell"},
-      h("div",{style:"background:#1a1a2e;padding:36px 22px 30px;position:relative;overflow:hidden;"},
-        h("div",{style:"position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:#F5C518;opacity:0.1;"}),
-        h("span",{class:"tag",style:"margin-bottom:18px;display:inline-flex;"},"Brand Growth Plan 30"),
-        h("h1",{style:"font-size:26px;font-weight:800;color:#fff;line-height:1.2;letter-spacing:-0.022em;"},
-          "Your Brand Growth Journey ",
-          h("span",{style:"color:#F5C518;"},"Starts Here")
+// ── Screens ───────────────────────────────────────────────────
+function screenSales(){
+  const f=state.form;
+  return el("div",{css:"background:#F8F4EC;min-height:100vh;"},
+    el("div",{cls:"shell"},
+      el("div",{css:"background:#1a1a2e;padding:36px 22px 30px;position:relative;overflow:hidden;"},
+        el("div",{css:"position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:#F5C518;opacity:0.1;"}),
+        el("span",{cls:"tag",css:"margin-bottom:18px;display:inline-flex;"},"Brand Growth Plan 30"),
+        el("h1",{css:"font-size:26px;font-weight:800;color:#fff;line-height:1.2;"},
+          "Brand kamu bisa lebih kuat. ",el("span",{css:"color:#F5C518;"},"Mulai dari sini.")
         )
       ),
-      h("div",{style:"padding:24px 20px 0;"},
-        state.hasSaved && h("div",{style:"background:#FFFBE6;border:2px solid #F5C518;border-radius:10px;padding:12px 14px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;"},
-          h("div",null,
-            h("p",{style:"font-size:13px;font-weight:700;margin-bottom:1px;"},"Lanjutkan dari tadi?"),
-            h("p",{style:"font-size:12px;color:#6b6b6b;"},"Jawaban kamu tersimpan")
-          ),
-          h("button",{onclick:()=>{
-            try{const s=localStorage.getItem("bgp30_form");if(s)state.form=JSON.parse(s);const st=localStorage.getItem("bgp30_step");if(st)state.step=st;}catch(e){}
+      el("div",{css:"padding:24px 20px 0;"},
+        state.hasSaved && el("div",{css:"background:#FFFBE6;border:2px solid #F5C518;border-radius:10px;padding:12px 14px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;"},
+          el("div",null,el("p",{css:"font-size:13px;font-weight:700;margin-bottom:1px;"},"Lanjut dari tadi?"),el("p",{css:"font-size:12px;color:#6b6b6b;"},"Jawabanmu masih ada, kok")),
+          el("button",{onclick:()=>{
+            try{const st=localStorage.getItem("bgp30_step");if(st&&st!=="sales"&&st!=="result")state.step=st;}catch(e){}
             state.hasSaved=false;render();
-          },style:"background:#F5C518;border:2px solid #1a1a2e;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;"},"Lanjut →")
+          },css:"background:#F5C518;border:2px solid #1a1a2e;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;"},"Lanjut →")
         ),
-        h("p",{style:"font-size:15px;font-weight:600;color:#1a1a2e;line-height:1.65;margin-bottom:12px;"},"Terima kasih telah membeli 30 Days Brand Growth."),
-        h("p",{style:"font-size:14px;color:#6b6b6b;line-height:1.75;margin-bottom:12px;"},"Tools ini membantu kamu mengembangkan brand secara praktis — step by step selama 30 hari."),
-        h("p",{style:"font-size:14px;color:#6b6b6b;line-height:1.75;margin-bottom:14px;"},"Jawab setiap pertanyaan dengan detail. Luangkan ",h("strong",{style:"color:#1a1a2e;"},"10–15 menit")," dan fokus sebentar."),
-        h("div",{style:"display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:24px;"},
+        el("p",{css:"font-size:15px;font-weight:600;color:#1a1a2e;line-height:1.65;margin-bottom:12px;"},"Kamu sudah ambil langkah yang banyak orang tunda."),
+        el("p",{css:"font-size:14px;color:#6b6b6b;line-height:1.75;margin-bottom:12px;"},"30 hari. 4 pertanyaan. Satu rencana yang bisa langsung kamu jalankan."),
+        el("p",{css:"font-size:14px;color:#6b6b6b;line-height:1.75;"},"Jawab jujur dan spesifik — semakin detail kamu cerita, semakin tajam hasilnya. Butuh ",el("strong",{css:"color:#1a1a2e;"},"10–15 menit"),"."),
+        el("div",{css:"display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:20px;margin-bottom:28px;"},
           ...[["⏱","10–15 mnt"],["📋","4 langkah"],["🎯","30 hari"]].map(([icon,label])=>
-            h("div",{style:"background:#F8F4EC;border:2px solid #E8E4DA;border-radius:10px;padding:10px 8px;text-align:center;"},
-              h("p",{style:"font-size:18px;margin-bottom:4px;"},icon),
-              h("p",{style:"font-size:11px;font-weight:700;color:#1a1a2e;"},label)
+            el("div",{css:"background:#F8F4EC;border:2px solid #E8E4DA;border-radius:10px;padding:10px 8px;text-align:center;"},
+              el("p",{css:"font-size:18px;margin-bottom:4px;"},icon),
+              el("p",{css:"font-size:11px;font-weight:700;color:#1a1a2e;"},label)
             )
           )
         ),
-        h("button",{class:"btn btn-yellow",onclick:()=>go("profil"),style:"margin-bottom:10px;"},"Mulai Sekarang →"),
-        CreditLine()
+        el("button",{cls:"btn btn-yellow",onclick:()=>go("profil"),css:"margin-bottom:10px;"},"Mulai →"),
+        creditLine()
       )
     )
   );
 }
 
-function renderProfil() {
-  const f = state.form;
-  return h("div",{style:"background:#F8F4EC;min-height:100vh;"},
-    h("div",{class:"shell"},
-      ProgBar(25,"Profil Bisnis",1,4),
-      h("div",{class:"screen"},
-        h("span",{class:"tag",style:"margin-bottom:12px;display:inline-flex;"},"🏢 Langkah 1"),
-        h("h2",{class:"h2",style:"margin-bottom:4px;"},"Profil bisnis kamu"),
-        h("p",{style:"font-size:13px;color:#6b6b6b;margin-bottom:18px;"},"Info ini menentukan relevansi seluruh analisis."),
-
-        h("div",{class:"field"},h("p",{class:"lbl"},"Nama bisnis"),makeInput({class:"inp",placeholder:"contoh: Kopi Nusantara"},"namaBisnis")),
-        h("div",{class:"field"},h("p",{class:"lbl"},"Industri / kategori"),makeInput({class:"inp",placeholder:"contoh: Kuliner, Fashion, Skincare"},"industri")),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Fokus wilayah"),
-          h("p",{class:"hint"},"Menentukan kompetitor yang dianalisis"),
-          ...[["📍 Lokal — satu kota","lokal"],["🗺 Regional — beberapa kota","regional"],["🇮🇩 Nasional","nasional"],["💻 Online","online"]].map(([l,v])=>Opt(l,f.wilayah===v,()=>sf("wilayah",v))),
-          makeInput({class:"inp",style:"margin-top:8px;",placeholder:"Kota spesifik (contoh: Surabaya, Bali)"},"wilayahDetail")
+function screenProfil(){
+  const f=state.form;
+  return el("div",{css:"background:#F8F4EC;min-height:100vh;"},
+    el("div",{cls:"shell"},
+      progBar(25,"Profil Bisnis",1,4),
+      el("div",{cls:"screen"},
+        el("span",{cls:"tag",css:"margin-bottom:12px;display:inline-flex;"},"🏢 Langkah 1"),
+        el("h2",{cls:"h2",css:"margin-bottom:4px;"},"Tentang bisnis kamu"),
+        el("p",{css:"font-size:13px;color:#6b6b6b;margin-bottom:18px;"},"Makin akurat infonya, makin pas hasilnya nanti."),
+        el("div",{cls:"field"},el("p",{cls:"lbl"},"Nama bisnis"),inp("namaBisnis",{placeholder:"contoh: Kopi Nusantara"})),
+        el("div",{cls:"field"},el("p",{cls:"lbl"},"Industri / kategori"),inp("industri",{placeholder:"contoh: Kuliner, Fashion, Skincare"})),
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Bisnis kamu jangkauannya seberapa?"),
+          el("p",{cls:"hint"},"Ini nentuin kompetitor mana yang relevan buat kamu"),
+          ...[["📍 Lokal — satu kota","lokal"],["🗺 Regional — beberapa kota","regional"],["🇮🇩 Nasional","nasional"],["💻 Online","online"]].map(([l,v])=>opt(l,f.wilayah===v,()=>{sf("wilayah",v);render();})),
+          inp("wilayahDetail",{placeholder:"Kota spesifik (contoh: Surabaya, Bali)",css:"margin-top:8px;"})
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Sudah berjalan berapa lama?"),
-          ...[["Kurang dari 1 tahun","kurang1"],["1–2 tahun","1-2"],["3–5 tahun","3-5"],["Lebih dari 5 tahun","5plus"]].map(([l,v])=>Opt(l,f.lamaBisnis===v,()=>sf("lamaBisnis",v)))
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Bisnis ini sudah jalan berapa lama?"),
+          ...[["Kurang dari 1 tahun","kurang1"],["1–2 tahun","1-2"],["3–5 tahun","3-5"],["Lebih dari 5 tahun","5plus"]].map(([l,v])=>opt(l,f.lamaBisnis===v,()=>{sf("lamaBisnis",v);render();}))
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Ukuran tim"),
-          ...[["Solo — saya sendiri","solo"],["2–5 orang","2-5"],["Lebih dari 5 orang","5plus"]].map(([l,v])=>Opt(l,f.ukuranTim===v,()=>sf("ukuranTim",v)))
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Berapa orang di tim kamu?"),
+          ...[["Solo — saya sendiri","solo"],["2–5 orang","2-5"],["Lebih dari 5 orang","5plus"]].map(([l,v])=>opt(l,f.ukuranTim===v,()=>{sf("ukuranTim",v);render();}))
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Cara dapat pelanggan baru"),
-          h("p",{class:"hint"},"Pilih semua yang berlaku"),
-          ...[["👥 Referral / mulut ke mulut","referral"],["📱 Posting organik","organik"],["📢 Iklan berbayar","iklan"],["🛒 Marketplace","marketplace"],["🤝 Komunitas / offline","komunitas"],["❓ Belum ada strategi","belum"]].map(([l,v])=>Opt(l,f.caraPelanggan.includes(v),()=>tog("caraPelanggan",v),true))
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Selama ini dapat pelanggan baru dari mana?"),
+          el("p",{cls:"hint"},"Boleh pilih lebih dari satu"),
+          ...[["👥 Referral","referral"],["📱 Posting organik","organik"],["📢 Iklan berbayar","iklan"],["🛒 Marketplace","marketplace"],["🤝 Komunitas / offline","komunitas"],["❓ Belum ada strategi","belum"]].map(([l,v])=>opt(l,f.caraPelanggan.includes(v),()=>tog("caraPelanggan",v),true))
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Platform aktif"),
-          h("p",{class:"hint"},"Kosongkan jika tidak ada"),
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Kamu aktif di platform mana aja?"),
+          el("p",{cls:"hint"},"Yang nggak aktif, skip aja"),
           ...[["Instagram","instagram","@namabisnis"],["Website","website","https://..."],["TikTok","tiktok","@namabisnis"],["Marketplace","marketplace","nama toko"],["WhatsApp","wa","08xx-xxxx"]].map(([l,k,ph])=>
-            h("div",{style:"display:flex;align-items:center;gap:8px;margin-bottom:8px;"},
-              h("span",{style:"font-size:12px;color:#6b6b6b;width:80px;flex-shrink:0;font-weight:500;"},l),
-              makeInput({class:"inp",style:"flex:1;",placeholder:ph},k)
+            el("div",{css:"display:flex;align-items:center;gap:8px;margin-bottom:8px;"},
+              el("span",{css:"font-size:12px;color:#6b6b6b;width:80px;flex-shrink:0;font-weight:500;"},l),
+              inp(k,{placeholder:ph,css:"flex:1;"})
             )
           )
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Kompetitor kamu"),
-          h("div",{style:"background:#FFFBE6;border:1px solid #F5C518;border-radius:8px;padding:9px 12px;margin-bottom:10px;display:flex;gap:7px;"},
-            h("span",{style:"font-size:13px;"},"🤖"),
-            h("p",{style:"font-size:12px;color:#1a1a2e;line-height:1.45;"},"Opsional — jika kosong, AI riset kompetitor relevan secara otomatis.")
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Siapa kompetitormu?"),
+          el("div",{css:"background:#FFFBE6;border:1px solid #F5C518;border-radius:8px;padding:9px 12px;margin-bottom:10px;display:flex;gap:7px;"},
+            el("span",{css:"font-size:13px;"},"🤖"),
+            el("p",{css:"font-size:12px;color:#1a1a2e;line-height:1.45;"},"Opsional. Kalau dikosongkan, AI yang riset sendiri.")
           ),
-          ...f.kompetitor.map((v,i)=>
-            h("div",{style:"display:flex;align-items:center;gap:8px;margin-bottom:8px;"},
-              h("span",{style:"font-size:12px;color:#bbb;width:16px;text-align:center;font-weight:700;"},String(i+1)),
-              (() => {
-                const el = document.createElement("input");
-                el.className = "inp"; el.style.flex = "1";
-                el.placeholder = "link atau @username";
-                el.value = v||"";
-                el.addEventListener("input", e=>{ const k=[...state.form.kompetitor]; k[i]=e.target.value; sf("kompetitor",k); });
-                return el;
-              })()
-            )
-          )
+          ...f.kompetitor.map((v,i)=>{
+            const e=document.createElement("div");
+            e.style.cssText="display:flex;align-items:center;gap:8px;margin-bottom:8px;";
+            const num=document.createElement("span");
+            num.style.cssText="font-size:12px;color:#bbb;width:16px;text-align:center;font-weight:700;";
+            num.textContent=String(i+1);
+            const input=document.createElement("input");
+            input.className="inp"; input.style.flex="1";
+            input.placeholder="nama, link, atau @username"; input.value=v||"";
+            input.addEventListener("input",ev=>{ const k=[...state.form.kompetitor]; k[i]=ev.target.value; sf("kompetitor",k); });
+            e.appendChild(num); e.appendChild(input);
+            return e;
+          })
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Email kamu"),
-          h("p",{class:"hint"},"Hasil Brand Growth Plan 30 akan dikirim ke email ini — supaya tidak hilang kalau tab browser ditutup."),
-          makeInput({class:"inp",type:"email",placeholder:"contoh: nama@email.com"},"userEmail")
-        ),
-
-        state.err && h("p",{class:"err"},state.err),
-        h("div",{style:"height:90px;"})
+        state.err && el("p",{cls:"err"},state.err),
+        el("div",{css:"height:90px;"})
       ),
-      h("div",{class:"action-bar"},
-        h("button",{class:"btn btn-primary",onclick:()=>{
-          if(!f.namaBisnis||!f.industri||!f.lamaBisnis){state.err="Lengkapi nama bisnis, industri, dan lama bisnis.";render();return;}
+      el("div",{cls:"action-bar"},
+        el("button",{cls:"btn btn-primary",onclick:()=>{
+          if(!f.namaBisnis||!f.industri||!f.lamaBisnis){state.err="Nama bisnis, industri, dan lama berjalan wajib diisi.";render();return;}
           go("situasi");
         }},"Lanjut →"),
-        h("button",{class:"btn btn-ghost",style:"margin-top:7px;",onclick:()=>go("sales")},"← Kembali")
+        el("button",{cls:"btn btn-ghost",css:"margin-top:7px;",onclick:()=>go("sales")},"← Kembali")
       )
     )
   );
 }
 
-function renderSituasi() {
-  const f = state.form;
-  return h("div",{style:"background:#F8F4EC;min-height:100vh;"},
-    h("div",{class:"shell"},
-      ProgBar(50,"Kondisi Brand",2,4),
-      h("div",{class:"screen"},
-        h("span",{class:"tag",style:"margin-bottom:12px;display:inline-flex;"},"🔍 Langkah 2"),
-        h("h2",{class:"h2",style:"margin-bottom:4px;"},"Kondisi brand sekarang"),
-        h("div",{style:"background:#FFFBE6;border:1px solid #F5C518;border-radius:8px;padding:9px 12px;margin-bottom:18px;display:flex;gap:7px;"},
-          h("span",{style:"font-size:13px;"},"💡"),
-          h("p",{style:"font-size:12px;color:#1a1a2e;line-height:1.45;"},"Semakin detail jawabanmu, semakin spesifik dan relevan hasilnya.")
+function screenSituasi(){
+  const f=state.form;
+  return el("div",{css:"background:#F8F4EC;min-height:100vh;"},
+    el("div",{cls:"shell"},
+      progBar(50,"Kondisi Brand",2,4),
+      el("div",{cls:"screen"},
+        el("span",{cls:"tag",css:"margin-bottom:12px;display:inline-flex;"},"🔍 Langkah 2"),
+        el("h2",{cls:"h2",css:"margin-bottom:4px;"},"Brand kamu sekarang seperti apa?"),
+        el("div",{css:"background:#FFFBE6;border:1px solid #F5C518;border-radius:8px;padding:9px 12px;margin-bottom:18px;display:flex;gap:7px;"},
+          el("span",{css:"font-size:13px;"},"💡"),
+          el("p",{css:"font-size:12px;color:#1a1a2e;line-height:1.45;"},"Cerita apa adanya — nggak ada jawaban yang salah.")
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Kesan pertama brand kamu"),
-          h("p",{class:"hint"},"Buka IG atau website kamu. Dalam 5 detik, apakah orang baru langsung tahu kamu jual apa dan untuk siapa?"),
-          h("div",{class:"example"},
-            h("p",{style:"font-size:11px;font-weight:700;color:#F5C518;margin-bottom:2px;"},"✦ Contoh jawaban baik:"),
-            h("p",{style:"font-size:11px;color:#1a1a2e;line-height:1.5;"},'"Bio IG saya hanya tulis nama toko, tidak ada penjelasan produk. Feed-nya campur antara foto produk dan konten random. Orang baru pasti bingung."')
-          ),
-          QTA(f.s1, e=>sf("s1",e.target.value), "Ceritakan jujur apa yang kamu lihat...", 80)
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Kalau orang asing buka IG atau website kamu sekarang..."),
+          el("p",{cls:"hint"},"Dalam 5 detik, apakah mereka langsung ngerti kamu jual apa — dan untuk siapa?"),
+          el("div",{cls:"example"},el("p",{css:"font-size:11px;font-weight:700;color:#F5C518;margin-bottom:2px;"},"✦ Contoh:"),el("p",{css:"font-size:11px;color:#1a1a2e;line-height:1.5;"},'"Bio IG saya hanya tulis nama toko. Feed campur antara foto produk dan konten random. Orang baru pasti bingung saya jual apa."')),
+          qta("s1","Ceritakan apa adanya...",80)
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Konsistensi brand di semua platform"),
-          h("p",{class:"hint"},"Warna, gaya visual, tone bahasa — apakah sama di IG, WA, marketplace?"),
-          ...[["✅ Sangat konsisten","konsisten"],["🟡 Cukup — ada panduan tapi tidak selalu diikuti","cukup"],["❌ Tidak konsisten — beda platform beda tampilan","kurang"],["⬜ Belum punya identitas visual","belum"]].map(([l,v])=>Opt(l,f.s2===v,()=>sf("s2",v))),
-          makeTA("Bagian mana yang paling tidak konsisten?","s2d"),
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Tampilan brand kamu di semua platform — konsisten nggak?"),
+          el("p",{cls:"hint"},"Warna, gaya visual, tone bahasa — sama semua atau beda-beda?"),
+          ...[["✅ Sangat konsisten","konsisten"],["🟡 Cukup — ada panduan tapi tidak selalu diikuti","cukup"],["❌ Tidak konsisten — beda platform beda tampilan","kurang"],["⬜ Belum punya identitas visual","belum"]].map(([l,v])=>opt(l,f.s2===v,()=>{sf("s2",v);render();})),
+          ta("s2d","Bagian mana yang paling beda-beda?")
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Feedback tentang brand kamu"),
-          h("p",{class:"hint"},"Komentar dari pelanggan, teman, siapapun — positif maupun kritis"),
-          h("div",{class:"example"},
-            h("p",{style:"font-size:11px;font-weight:700;color:#F5C518;margin-bottom:2px;"},"✦ Contoh:"),
-            h("p",{style:"font-size:11px;color:#1a1a2e;line-height:1.5;"},'"Pelanggan sering bilang kira-kira mahal padahal harga saya di bawah kompetitor."')
-          ),
-          QTA(f.s3, e=>sf("s3",e.target.value), "Apa yang pernah mereka katakan?", 60)
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Orang-orang bilang apa soal brand kamu?"),
+          el("p",{cls:"hint"},"Dari pelanggan, teman, siapapun. Yang bagus maupun yang pedas."),
+          el("div",{cls:"example"},el("p",{css:"font-size:11px;font-weight:700;color:#F5C518;margin-bottom:2px;"},"✦ Contoh:"),el("p",{css:"font-size:11px;color:#1a1a2e;line-height:1.5;"},'"Pelanggan sering bilang kira-kira mahal padahal harga saya di bawah kompetitor."')),
+          qta("s3","Apa yang pernah mereka bilang?",60)
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Pelanggan terbaik kamu"),
-          h("p",{class:"hint"},"Siapa mereka dan kenapa memilih kamu bukan kompetitor?"),
-          QTA(f.s4, e=>sf("s4",e.target.value), "Gambaran pelanggan terbaik kamu...", 80)
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Ceritain soal pelangganmu yang paling ideal"),
+          el("p",{cls:"hint"},"Siapa mereka? Dan kenapa mereka milih kamu, bukan yang lain?"),
+          qta("s4","Gambarkan orangnya...",80)
         ),
-
-        state.err && h("p",{class:"err"},state.err),
-        h("div",{style:"height:90px;"})
+        state.err && el("p",{cls:"err"},state.err),
+        el("div",{css:"height:90px;"})
       ),
-      h("div",{class:"action-bar"},
-        h("button",{class:"btn btn-primary",onclick:()=>{
-          if(!f.s1||!f.s2){state.err="Lengkapi semua jawaban.";render();return;}
-          if(f.s1.length<30){state.err="Jawaban pertama terlalu singkat.";render();return;}
+      el("div",{cls:"action-bar"},
+        el("button",{cls:"btn btn-primary",onclick:()=>{
+          if(!f.s1||!f.s2){state.err="Ada pertanyaan yang belum dijawab.";render();return;}
+          if(f.s1.length<30){state.err="Jawaban pertama masih terlalu singkat — cerita lebih detail ya.";render();return;}
           go("tantangan");
         }},"Lanjut →"),
-        h("button",{class:"btn btn-ghost",style:"margin-top:7px;",onclick:()=>go("profil")},"← Kembali")
+        el("button",{cls:"btn btn-ghost",css:"margin-top:7px;",onclick:()=>go("profil")},"← Kembali")
       )
     )
   );
 }
 
-function renderTantangan() {
-  const f = state.form;
-  return h("div",{style:"background:#F8F4EC;min-height:100vh;"},
-    h("div",{class:"shell"},
-      ProgBar(75,"Tantangan",3,4),
-      h("div",{class:"screen"},
-        h("span",{class:"tag",style:"margin-bottom:12px;display:inline-flex;"},"⚡ Langkah 3"),
-        h("h2",{class:"h2",style:"margin-bottom:4px;"},"Tantangan kamu"),
-        h("p",{style:"font-size:13px;color:#6b6b6b;margin-bottom:18px;"},"Semakin jujur di sini, semakin tepat rekomendasinya."),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Yang sudah dicoba tapi belum berhasil"),
-          h("p",{class:"hint"},"Konten, desain, iklan, kolaborasi — dan kenapa tidak berhasil?"),
-          h("div",{class:"example"},
-            h("p",{style:"font-size:11px;font-weight:700;color:#F5C518;margin-bottom:2px;"},"✦ Contoh:"),
-            h("p",{style:"font-size:11px;color:#1a1a2e;line-height:1.5;"},'"Sudah coba Meta Ads 3 bulan, habis 2 juta, ROAS di bawah 1. Juga hire desainer tapi tidak konsisten."')
-          ),
-          QTA(f.t1, e=>sf("t1",e.target.value), "Apa yang sudah dicoba dan kenapa tidak berhasil?", 80)
+function screenTantangan(){
+  const f=state.form;
+  return el("div",{css:"background:#F8F4EC;min-height:100vh;"},
+    el("div",{cls:"shell"},
+      progBar(75,"Tantangan",3,4),
+      el("div",{cls:"screen"},
+        el("span",{cls:"tag",css:"margin-bottom:12px;display:inline-flex;"},"⚡ Langkah 3"),
+        el("h2",{cls:"h2",css:"margin-bottom:4px;"},"Jujur dulu soal apa yang belum beres"),
+        el("p",{css:"font-size:13px;color:#6b6b6b;margin-bottom:18px;"},"Bagian ini yang paling nentuin kualitas hasilnya."),
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Sudah coba apa — yang nggak jalan?"),
+          el("p",{cls:"hint"},"Konten, iklan, desain, kolaborasi — dan kenapa menurutmu nggak berhasil?"),
+          el("div",{cls:"example"},el("p",{css:"font-size:11px;font-weight:700;color:#F5C518;margin-bottom:2px;"},"✦ Contoh:"),el("p",{css:"font-size:11px;color:#1a1a2e;line-height:1.5;"},'"Sudah coba Meta Ads 3 bulan, habis 2 juta, ROAS di bawah 1."')),
+          qta("t1","Cerita apa yang sudah dicoba...",80)
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Bagian brand yang paling belum beres"),
-          h("p",{class:"hint"},"Yang bikin kamu tidak nyaman kalau orang melihatnya"),
-          h("div",{class:"example"},
-            h("p",{style:"font-size:11px;font-weight:700;color:#F5C518;margin-bottom:2px;"},"✦ Contoh:"),
-            h("p",{style:"font-size:11px;color:#1a1a2e;line-height:1.5;"},'"Website saya sudah 3 tahun tidak di-update. Tampilannya jadul. Malu kalau ada calon klien minta lihat."')
-          ),
-          QTA(f.t2, e=>sf("t2",e.target.value), "Bagian mana yang paling kamu rasa belum beres?", 60)
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Bagian brand yang bikin kamu paling nggak nyaman"),
+          el("p",{cls:"hint"},"Kalau ada calon klien minta lihat — bagian mana yang kamu takutin?"),
+          el("div",{cls:"example"},el("p",{css:"font-size:11px;font-weight:700;color:#F5C518;margin-bottom:2px;"},"✦ Contoh:"),el("p",{css:"font-size:11px;color:#1a1a2e;line-height:1.5;"},'"Website saya sudah 3 tahun tidak di-update. Malu kalau ada calon klien minta lihat."')),
+          qta("t2","Bagian mana itu?",60)
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Pernah kalah dari kompetitor?"),
-          h("p",{class:"hint"},"Situasi nyata di mana calon pelanggan memilih kompetitor — kenapa?"),
-          QTA(f.t3, e=>sf("t3",e.target.value), "Ceritakan situasinya...", 40)
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Pernah kalah dari kompetitor — situasi nyata?"),
+          el("p",{cls:"hint"},"Cerita situasinya, dan menurutmu kenapa bisa kalah?"),
+          qta("t3","Situasinya seperti apa...",40)
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Satu hal yang paling mengganjal"),
-          h("p",{class:"hint"},"Tentang brand kamu — yang kalau besok terselesaikan, kamu akan lega"),
-          QTA(f.t4, e=>sf("t4",e.target.value), "Hal apa itu...", 40)
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Satu hal yang paling mengganjal di kepala kamu"),
+          el("p",{cls:"hint"},"Kalau ini selesai besok, kamu bakal langsung lega"),
+          qta("t4","Apa itu...",40)
         ),
-
-        state.err && h("p",{class:"err"},state.err),
-        h("div",{style:"height:90px;"})
+        state.err && el("p",{cls:"err"},state.err),
+        el("div",{css:"height:90px;"})
       ),
-      h("div",{class:"action-bar"},
-        h("button",{class:"btn btn-primary",onclick:()=>{
-          if(!f.t1||!f.t2){state.err="Lengkapi minimal 2 jawaban pertama.";render();return;}
-          if(f.t1.length<30){state.err="Jawaban pertama masih terlalu singkat.";render();return;}
+      el("div",{cls:"action-bar"},
+        el("button",{cls:"btn btn-primary",onclick:()=>{
+          if(!f.t1||!f.t2){state.err="Isi dulu dua pertanyaan pertama ya.";render();return;}
+          if(f.t1.length<30){state.err="Jawaban pertama masih terlalu singkat — cerita lebih detail.";render();return;}
           go("tujuan");
         }},"Lanjut →"),
-        h("button",{class:"btn btn-ghost",style:"margin-top:7px;",onclick:()=>go("situasi")},"← Kembali")
+        el("button",{cls:"btn btn-ghost",css:"margin-top:7px;",onclick:()=>go("situasi")},"← Kembali")
       )
     )
   );
 }
 
-function renderTujuan() {
-  const f = state.form;
-  return h("div",{style:"background:#F8F4EC;min-height:100vh;"},
-    h("div",{class:"shell"},
-      ProgBar(95,"Tujuan",4,4),
-      h("div",{class:"screen"},
-        h("span",{class:"tag",style:"margin-bottom:12px;display:inline-flex;"},"🎯 Langkah 4"),
-        h("h2",{class:"h2",style:"margin-bottom:4px;"},"Tujuan 30 hari ke depan"),
-        h("p",{style:"font-size:13px;color:#6b6b6b;margin-bottom:18px;"},"Jawab dengan ekspektasi nyata — ini yang menentukan arah rencana kamu."),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"30 hari dari sekarang — apa yang berubah?"),
-          h("p",{class:"hint"},"Satu hal konkret yang kamu inginkan terjadi untuk brand kamu"),
-          h("div",{class:"example"},
-            h("p",{style:"font-size:11px;font-weight:700;color:#F5C518;margin-bottom:2px;"},"✦ Contoh spesifik:"),
-            h("p",{style:"font-size:11px;color:#1a1a2e;line-height:1.5;"},'"Bio IG saya sudah jelas targetnya dan feed konsisten sehingga orang baru langsung paham bisnis saya."')
-          ),
-          QTA(f.g1, e=>sf("g1",e.target.value), "Apa konkretnya yang ingin berubah?", 60)
+function screenTujuan(){
+  const f=state.form;
+  return el("div",{css:"background:#F8F4EC;min-height:100vh;"},
+    el("div",{cls:"shell"},
+      progBar(95,"Tujuan",4,4),
+      el("div",{cls:"screen"},
+        el("span",{cls:"tag",css:"margin-bottom:12px;display:inline-flex;"},"🎯 Langkah 4"),
+        el("h2",{cls:"h2",css:"margin-bottom:4px;"},"30 hari ke depan — kamu mau ke mana?"),
+        el("p",{css:"font-size:13px;color:#6b6b6b;margin-bottom:18px;"},"Tulis yang realistis. Ini yang jadi kompas rencana kamu."),
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Kalau 30 hari berjalan dengan baik — apa yang berbeda?"),
+          el("p",{cls:"hint"},"Satu hal konkret. Bukan wishlist, tapi yang beneran bisa terjadi."),
+          el("div",{cls:"example"},el("p",{css:"font-size:11px;font-weight:700;color:#F5C518;margin-bottom:2px;"},"✦ Contoh:"),el("p",{css:"font-size:11px;color:#1a1a2e;line-height:1.5;"},'"Bio IG saya sudah jelas dan feed konsisten sehingga orang baru langsung paham bisnis saya."')),
+          qta("g1","Apa yang ingin berubah?",60)
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Prioritas utama saat ini"),
-          ...[["🔊 Brand lebih dikenal & mudah diingat","dikenal"],["💰 Lebih banyak yang melihat → membeli","konversi"],["📈 Bangun kepercayaan untuk naik harga","harga"],["🎨 Tampil konsisten di semua platform","konsisten"]].map(([l,v])=>Opt(l,f.g2===v,()=>sf("g2",v)))
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Yang paling penting buat kamu sekarang"),
+          ...[["🔊 Brand lebih dikenal & mudah diingat","dikenal"],["💰 Lebih banyak yang melihat → membeli","konversi"],["📈 Bangun kepercayaan untuk naik harga","harga"],["🎨 Tampil konsisten di semua platform","konsisten"]].map(([l,v])=>opt(l,f.g2===v,()=>{sf("g2",v);render();}))
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Waktu tersedia per minggu"),
-          h("p",{class:"hint"},"Di luar operasional sehari-hari"),
-          ...[["⏱ 1–2 jam","1-2jam"],["⏱ 3–5 jam","3-5jam"],["⏱ Lebih dari 5 jam","5plus"]].map(([l,v])=>Opt(l,f.g3===v,()=>sf("g3",v)))
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Berapa jam yang bisa kamu luangin per minggu?"),
+          el("p",{cls:"hint"},"Di luar ngurusin bisnis sehari-hari"),
+          ...[["⏱ 1–2 jam","1-2jam"],["⏱ 3–5 jam","3-5jam"],["⏱ Lebih dari 5 jam","5plus"]].map(([l,v])=>opt(l,f.g3===v,()=>{sf("g3",v);render();}))
         ),
-
-        h("div",{class:"field"},
-          h("p",{class:"lbl"},"Kendala yang mungkin jadi hambatan"),
-          h("p",{class:"hint"},"Budget, tim, skill — agar rencana bisa menyesuaikan kondisi nyata"),
-          makeTA("contoh: budget maks 500rb/bulan, tidak bisa desain","g4"),
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Ada hambatan yang perlu diperhitungkan?"),
+          el("p",{cls:"hint"},"Budget, waktu, atau skill — biar rencana yang keluar sesuai kondisi aslimu"),
+          ta("g4","contoh: budget max 500rb/bulan, nggak bisa desain sendiri")
         ),
-
-        state.err && h("p",{class:"err"},state.err),
-        h("div",{style:"height:90px;"})
+        el("div",{cls:"field"},
+          el("p",{cls:"lbl"},"Kirim hasil ke email kamu"),
+          el("p",{cls:"hint"},"Biar hasilnya nggak hilang kalau tab ditutup atau sinyal gangguan."),
+          inp("userEmail",{type:"email",placeholder:"contoh: nama@email.com"})
+        ),
+        state.err && el("p",{cls:"err"},state.err),
+        el("div",{css:"height:90px;"})
       ),
-      h("div",{class:"action-bar"},
-        h("button",{class:"btn btn-primary",onclick:()=>{
-          if(!f.g1||!f.g2||!f.g3){state.err="Lengkapi semua pertanyaan.";render();return;}
-          if(f.g1.length<30){state.err="Jawaban tujuan masih terlalu singkat.";render();return;}
-          if(!f.userEmail||!f.userEmail.includes("@")){state.err="Masukkan email yang valid.";render();return;}
+      el("div",{cls:"action-bar"},
+        el("button",{cls:"btn btn-primary",onclick:()=>{
+          if(!f.g1||!f.g2||!f.g3){state.err="Ada yang belum diisi nih.";render();return;}
+          if(f.g1.length<30){state.err="Tujuannya masih terlalu singkat — coba lebih spesifik.";render();return;}
+          if(!f.userEmail||!f.userEmail.includes("@")){state.err="Format emailnya belum bener.";render();return;}
           runAI(false);
-        }},"Buat Brand Growth Plan 30 →"),
-        h("button",{class:"btn btn-ghost",style:"margin-top:7px;",onclick:()=>go("tantangan")},"← Kembali")
+        }},"Buat Rencana Saya →"),
+        el("button",{cls:"btn btn-ghost",css:"margin-top:7px;",onclick:()=>go("tantangan")},"← Kembali")
       )
     )
   );
 }
 
-function renderLoading() {
-  return h("div",{style:"background:#F8F4EC;min-height:100vh;"},
-    h("div",{class:"shell",style:"background:#fff;"},
-      h("div",{style:"display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:0 24px;text-align:center;"},
-        h("div",{style:"width:48px;height:48px;border:4px solid #F8F4EC;border-top:4px solid #F5C518;border-radius:50%;animation:spin 0.85s linear infinite;margin-bottom:24px;"}),
-        h("span",{class:"tag",style:"margin-bottom:14px;"},"Sedang diproses"),
-        h("p",{id:"load-msg",style:"font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:6px;"},LOAD_MSGS[state.loadIdx]),
-        h("p",{style:"font-size:13px;color:#6b6b6b;"},"Untuk ",h("strong",null,state.form.namaBisnis),"...")
+function screenLoading(){
+  return el("div",{css:"background:#F8F4EC;min-height:100vh;"},
+    el("div",{cls:"shell",css:"background:#fff;"},
+      el("div",{css:"display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:0 24px;text-align:center;"},
+        el("div",{css:"width:48px;height:48px;border:4px solid #F8F4EC;border-top:4px solid #F5C518;border-radius:50%;animation:spin 0.85s linear infinite;margin-bottom:24px;"}),
+        el("span",{cls:"tag",css:"margin-bottom:14px;"},"Lagi diproses"),
+        el("p",{id:"load-msg",css:"font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:6px;"},LOAD_MSGS[state.loadIdx]),
+        el("p",{css:"font-size:13px;color:#6b6b6b;"},"Untuk ",el("strong",null,state.form.namaBisnis),"...")
       )
     )
   );
 }
 
-function renderError() {
-  return h("div",{style:"background:#F8F4EC;min-height:100vh;"},
-    h("div",{class:"shell",style:"background:#fff;"},
-      h("div",{style:"display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:0 28px;text-align:center;"},
-        h("div",{style:"width:52px;height:52px;background:#F5C518;border:2px solid #1a1a2e;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;"},"⚠️"),
-        h("span",{class:"tag",style:"margin-bottom:12px;"},"Ada Kendala"),
-        h("h2",{class:"h2",style:"margin-bottom:8px;"},state.errType==="network"?"Koneksi Bermasalah":state.errType==="api"?"Server Sibuk":"Hasil Tidak Terbaca"),
-        h("p",{style:"font-size:13px;color:#6b6b6b;line-height:1.6;margin-bottom:6px;"},state.err),
-        h("p",{style:"font-size:12px;color:#bbb;margin-bottom:24px;"},state.retryCount<3?"Jawaban kamu tersimpan — tidak perlu isi ulang.":"Sudah 3x mencoba."),
-        h("div",{style:"width:100%;display:flex;flex-direction:column;gap:8px;"},
+function screenError(){
+  return el("div",{css:"background:#F8F4EC;min-height:100vh;"},
+    el("div",{cls:"shell",css:"background:#fff;"},
+      el("div",{css:"display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:0 28px;text-align:center;"},
+        el("div",{css:"width:52px;height:52px;background:#F5C518;border:2px solid #1a1a2e;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;"},"⚠️"),
+        el("span",{cls:"tag",css:"margin-bottom:12px;"},"Ada yang nggak beres"),
+        el("h2",{cls:"h2",css:"margin-bottom:8px;"},state.errType==="network"?"Koneksi Bermasalah":state.errType==="api"?"Server Sibuk":"Hasil Tidak Terbaca"),
+        el("p",{css:"font-size:13px;color:#6b6b6b;line-height:1.6;margin-bottom:6px;"},state.err),
+        el("p",{css:"font-size:12px;color:#bbb;margin-bottom:24px;"},state.retryCount<3?"Tenang, jawabanmu masih tersimpan.":"Sudah 3x, kayaknya ada masalah yang lebih dalam."),
+        el("div",{css:"width:100%;display:flex;flex-direction:column;gap:8px;"},
           state.retryCount<3
-            ? h("button",{class:"btn btn-yellow",style:"box-shadow:4px 4px 0 #1a1a2e;",onclick:()=>runAI(true)},"Coba Lagi "+(state.retryCount>0?"("+state.retryCount+"/3)":"")+"→")
-            : h("a",{href:"https://wa.me/"+WA+"?text=Halo%2C%20saya%20mengalami%20kendala%20di%20Brand%20Growth%20Plan%2030.",target:"_blank",rel:"noreferrer",style:"display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;padding:14px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;"},"Hubungi via WhatsApp"),
-          h("button",{class:"btn btn-ghost",onclick:()=>go("tujuan")},"← Kembali ke Form")
+            ? el("button",{cls:"btn btn-yellow",css:"box-shadow:4px 4px 0 #1a1a2e;",onclick:()=>runAI(true)},"Coba Lagi "+(state.retryCount>0?" ("+state.retryCount+"/3)":"")+"→")
+            : el("a",{href:"https://wa.me/"+WA+"?text=Halo%2C%20saya%20mengalami%20kendala%20di%20Brand%20Growth%20Plan%2030.",target:"_blank",css:"display:flex;align-items:center;justify-content:center;background:#25D366;color:#fff;padding:14px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;"},"Chat Budi via WhatsApp"),
+          el("button",{cls:"btn btn-ghost",onclick:()=>go("tujuan")},"← Balik ke Form")
         )
       )
     )
   );
 }
 
-function renderResult() {
-  const r = state.result;
-  const f = state.form;
-  const loc = f.wilayahDetail||f.wilayah||"Indonesia";
-
-  return h("div",{style:"background:#F8F4EC;min-height:100vh;"},
-    h("div",{class:"shell"},
-      h("div",{style:"background:#1a1a2e;padding:24px 20px 20px;position:relative;overflow:hidden;"},
-        h("div",{style:"position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;background:#F5C518;opacity:0.1;"}),
-        h("span",{class:"tag",style:"margin-bottom:10px;display:inline-flex;"},"Brand Growth Plan 30"),
-        h("h2",{style:"font-size:20px;font-weight:800;color:#fff;margin-bottom:2px;"},f.namaBisnis),
-        h("p",{style:"font-size:11px;color:rgba(255,255,255,0.4);"},f.industri+" · "+loc+" · "+new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"}))
+function screenResult(){
+  const r=state.result, f=state.form;
+  const loc=f.wilayahDetail||f.wilayah||"Indonesia";
+  return el("div",{css:"background:#F8F4EC;min-height:100vh;"},
+    el("div",{cls:"shell"},
+      el("div",{css:"background:#1a1a2e;padding:24px 20px 20px;position:relative;overflow:hidden;"},
+        el("div",{css:"position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;background:#F5C518;opacity:0.1;"}),
+        el("span",{cls:"tag",css:"margin-bottom:10px;display:inline-flex;"},"Brand Growth Plan 30"),
+        el("h2",{css:"font-size:20px;font-weight:800;color:#fff;margin-bottom:2px;"},f.namaBisnis),
+        el("p",{css:"font-size:11px;color:rgba(255,255,255,0.4);"},f.industri+" · "+loc+" · "+new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"}))
       ),
-      h("div",{class:"screen",style:"padding-top:20px;"},
-
-        r.opening_line && h("div",{style:"border-left:3px solid #F5C518;padding-left:14px;margin-bottom:16px;"},
-          h("p",{style:"font-size:14px;font-family:'Playfair Display',serif;font-style:italic;line-height:1.65;"},r.opening_line)
+      el("div",{cls:"screen",css:"padding-top:20px;"},
+        r.opening_line && el("div",{css:"border-left:3px solid #F5C518;padding-left:14px;margin-bottom:16px;"},
+          el("p",{css:"font-size:14px;font-family:'Playfair Display',serif;font-style:italic;line-height:1.65;"},r.opening_line)
         ),
-
-        h("div",{style:"background:#F8F4EC;border:2px solid #E8E4DA;border-radius:12px;padding:14px 16px;margin-bottom:12px;"},
-          h("p",{class:"eyebrow",style:"margin-bottom:10px;"},"📊 Diagnosis"),
-          h("p",{style:"font-size:13px;line-height:1.75;margin-bottom:8px;"},r.diagnosis_p1),
-          h("div",{style:"height:1px;background:#E8E4DA;margin-bottom:8px;"}),
-          h("p",{style:"font-size:13px;line-height:1.75;"},r.diagnosis_p2)
+        el("div",{css:"background:#F8F4EC;border:2px solid #E8E4DA;border-radius:12px;padding:14px 16px;margin-bottom:12px;"},
+          el("p",{cls:"eyebrow",css:"margin-bottom:10px;"},"📊 Diagnosis"),
+          el("p",{css:"font-size:13px;line-height:1.75;margin-bottom:8px;"},r.diagnosis_p1),
+          el("div",{css:"height:1px;background:#E8E4DA;margin-bottom:8px;"}),
+          el("p",{css:"font-size:13px;line-height:1.75;"},r.diagnosis_p2)
         ),
-
-        h("div",{style:"background:#F5C518;border:2px solid #1a1a2e;border-radius:12px;padding:14px 16px;margin-bottom:12px;"},
-          h("p",{class:"eyebrow",style:"margin-bottom:10px;"},"⚡ Prioritas 48 Jam Pertama"),
+        el("div",{css:"background:#F5C518;border:2px solid #1a1a2e;border-radius:12px;padding:14px 16px;margin-bottom:12px;"},
+          el("p",{cls:"eyebrow",css:"margin-bottom:10px;"},"⚡ Prioritas 48 Jam Pertama"),
           ...(r.prioritas||[]).map((p,i)=>
-            h("div",{style:"display:flex;gap:8px;align-items:flex-start;margin-bottom:"+(i<(r.prioritas.length-1)?"8":"0")+"px;"},
-              h("span",{style:"font-weight:800;font-size:13px;flex-shrink:0;min-width:18px;"},String(i+1)+"."),
-              h("p",{style:"font-size:13px;font-weight:500;line-height:1.5;"},p)
+            el("div",{css:"display:flex;gap:8px;align-items:flex-start;margin-bottom:"+(i<(r.prioritas.length-1)?"8":"0")+"px;"},
+              el("span",{css:"font-weight:800;font-size:13px;flex-shrink:0;min-width:18px;"},String(i+1)+"."),
+              el("p",{css:"font-size:13px;font-weight:500;line-height:1.5;"},p)
             )
           )
         ),
-
-        r.kompetitor_analisis && r.kompetitor_analisis.length > 0 && h("div",{style:"margin-bottom:12px;"},
-          h("div",{style:"display:flex;align-items:center;gap:8px;margin-bottom:10px;"},
-            h("p",{class:"eyebrow"},"🔎 Kompetitor"),
-            r.kompetitor_riset_mandiri && h("span",{style:"background:#FFFBE6;border:1px solid #F5C518;color:#1a1a2e;font-size:9px;font-weight:800;padding:2px 7px;border-radius:99px;"},"RISET AI")
+        r.kompetitor_analisis && r.kompetitor_analisis.length>0 && el("div",{css:"margin-bottom:12px;"},
+          el("div",{css:"display:flex;align-items:center;gap:8px;margin-bottom:10px;"},
+            el("p",{cls:"eyebrow"},"🔎 Kompetitor"),
+            r.kompetitor_riset_mandiri && el("span",{css:"background:#FFFBE6;border:1px solid #F5C518;color:#1a1a2e;font-size:9px;font-weight:800;padding:2px 7px;border-radius:99px;"},"RISET AI")
           ),
           ...r.kompetitor_analisis.map((k,i)=>
-            h("div",{class:"komp-card",style:"margin-bottom:10px;"},
-              h("div",{class:"komp-head"},
-                h("p",{style:"font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.08em;margin-bottom:2px;"},"KOMPETITOR "+String(i+1)),
-                h("p",{style:"font-size:14px;font-weight:800;color:#fff;"},k.nama||k.url),
-                k.nama&&k.url&&h("p",{style:"font-size:10px;color:rgba(255,255,255,0.35);margin-top:1px;"},k.url)
+            el("div",{cls:"komp-card",css:"margin-bottom:10px;"},
+              el("div",{cls:"komp-head"},
+                el("p",{css:"font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.08em;margin-bottom:2px;"},"KOMPETITOR "+String(i+1)),
+                el("p",{css:"font-size:14px;font-weight:800;color:#fff;"},k.nama||k.url),
+                k.nama&&k.url&&el("p",{css:"font-size:10px;color:rgba(255,255,255,0.35);margin-top:1px;"},k.url)
               ),
-              h("div",{style:"display:grid;grid-template-columns:1fr 1fr 1fr;background:#fff;"},
-                ...[["✦ Kelebihan",k.kelebihan,"#bbb"],["↓ Kelemahan",k.kelemahan,"#bbb"],["→ Peluang",k.peluang,"#1a1a2e"]].map(([lbl,val,col])=>
-                  h("div",{style:"padding:10px 11px;border-right:1px solid #E8E4DA;"},
-                    h("p",{style:"font-size:9px;font-weight:800;color:#bbb;letter-spacing:0.08em;margin-bottom:4px;"},lbl.toUpperCase()),
-                    h("p",{style:"font-size:12px;line-height:1.5;color:"+col+";font-weight:"+(lbl.includes("Peluang")?"600":"400")+";"},val)
+              el("div",{css:"display:grid;grid-template-columns:1fr 1fr 1fr;background:#fff;"},
+                ...[["✦ Kelebihan",k.kelebihan,"#bbb"],["↓ Kelemahan",k.kelemahan,"#bbb"],["→ Peluang",k.peluang,"#1a1a2e"]].map(([lbl,val,col],ci)=>
+                  el("div",{css:"padding:10px 11px;"+(ci<2?"border-right:1px solid #E8E4DA;":"")},
+                    el("p",{css:"font-size:9px;font-weight:800;color:#bbb;letter-spacing:0.08em;margin-bottom:4px;"},lbl.toUpperCase()),
+                    el("p",{css:"font-size:12px;line-height:1.5;color:"+col+";font-weight:"+(lbl.includes("Peluang")?"600":"400")+";"},val)
                   )
                 )
               )
             )
           )
         ),
-
-        h("p",{class:"eyebrow",style:"margin-bottom:10px;"},"📅 Rencana 30 Hari"),
-        ...["minggu1","minggu2","minggu3","minggu4"].map((m,i)=>r[m]?WkCard(i+1,r[m]):null).filter(Boolean),
-
-        h("div",{style:"background:#F8F4EC;border:2px solid #E8E4DA;border-radius:12px;padding:14px 16px;margin-top:4px;margin-bottom:14px;"},
-          h("p",{class:"eyebrow",style:"margin-bottom:8px;"},"💬 Pesan dari Saya"),
-          h("p",{style:"font-size:13px;line-height:1.7;font-style:italic;margin-bottom:12px;"},r.pesan_personal),
-          h("div",{style:"display:flex;align-items:center;gap:10px;"},
-            h("div",{style:"width:32px;height:32px;background:#F5C518;border:2px solid #1a1a2e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;"},"B"),
-            h("div",null,
-              h("p",{style:"font-size:12px;font-weight:700;"},"Budi Pranoto"),
-              h("p",{style:"font-size:11px;color:#6b6b6b;"},"Digital & Brand Strategist")
-            )
+        el("p",{cls:"eyebrow",css:"margin-bottom:10px;"},"📅 Rencana 30 Hari"),
+        ...["minggu1","minggu2","minggu3","minggu4"].map((m,i)=>r[m]?wkCard(i+1,r[m]):null).filter(Boolean),
+        el("div",{css:"background:#F8F4EC;border:2px solid #E8E4DA;border-radius:12px;padding:14px 16px;margin-top:4px;margin-bottom:14px;"},
+          el("p",{cls:"eyebrow",css:"margin-bottom:8px;"},"💬 Pesan dari Saya"),
+          el("p",{css:"font-size:13px;line-height:1.7;font-style:italic;margin-bottom:12px;"},r.pesan_personal),
+          el("div",{css:"display:flex;align-items:center;gap:10px;"},
+            el("div",{css:"width:32px;height:32px;background:#F5C518;border:2px solid #1a1a2e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;"},"B"),
+            el("div",null,el("p",{css:"font-size:12px;font-weight:700;"},"Budi Pranoto"),el("p",{css:"font-size:11px;color:#6b6b6b;"},"Digital & Brand Strategist"))
           )
         ),
-
-        h("a",{href:"https://wa.me/"+WA+"?text=Halo%2C%20saya%20baru%20selesai%20Brand%20Growth%20Plan%2030%20untuk%20"+encodeURIComponent(f.namaBisnis)+"%20dan%20ingin%20konsultasi.",target:"_blank",rel:"noreferrer",style:"display:flex;align-items:center;gap:12px;background:#1a1a2e;border-radius:12px;padding:14px 16px;margin-bottom:16px;text-decoration:none;box-shadow:4px 4px 0 #F5C518;"},
-          h("svg",{width:"32",height:"32",viewBox:"0 0 36 36",fill:"none"},
-            h("rect",{width:"36",height:"36",rx:"8",fill:"#25D366"}),
-            h("path",{d:"M18 7C12.477 7 8 11.477 8 17c0 1.89.52 3.66 1.427 5.18L8 29l6.98-1.407A10 10 0 0 0 18 28c5.523 0 10-4.477 10-10S23.523 7 18 7Z",fill:"white"}),
-            h("path",{d:"M14.5 13.5c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.2 2.8 4.4 6.9 6 .9.4 1.7.6 2.2.7.9.2 1.8.2 2.4.1.7-.1 2.2-.9 2.5-1.8.3-.8.3-1.6.2-1.7-.1-.2-.4-.3-.8-.5-.5-.2-2.8-1.4-3.2-1.5-.4-.2-.7-.2-1 .2-.3.4-1.1 1.5-1.4 1.8-.2.3-.5.3-.9.1-.5-.2-2-.7-3.8-2.4-1.4-1.3-2.4-2.9-2.6-3.3-.3-.4 0-.7.2-.9.2-.2.5-.5.7-.8.2-.3.3-.5.4-.9.2-.3.1-.6 0-.9Z",fill:"#25D366"})
+        el("a",{href:"https://wa.me/"+WA+"?text=Halo%2C%20saya%20baru%20selesai%20Brand%20Growth%20Plan%2030%20untuk%20"+encodeURIComponent(f.namaBisnis)+"%20dan%20ingin%20konsultasi.",target:"_blank",css:"display:flex;align-items:center;gap:12px;background:#1a1a2e;border-radius:12px;padding:14px 16px;margin-bottom:16px;text-decoration:none;box-shadow:4px 4px 0 #F5C518;"},
+          el("svg",{width:"32",height:"32",viewBox:"0 0 36 36",fill:"none"},
+            el("rect",{width:"36",height:"36",rx:"8",fill:"#25D366"}),
+            el("path",{d:"M18 7C12.477 7 8 11.477 8 17c0 1.89.52 3.66 1.427 5.18L8 29l6.98-1.407A10 10 0 0 0 18 28c5.523 0 10-4.477 10-10S23.523 7 18 7Z",fill:"white"}),
+            el("path",{d:"M14.5 13.5c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.2 2.8 4.4 6.9 6 .9.4 1.7.6 2.2.7.9.2 1.8.2 2.4.1.7-.1 2.2-.9 2.5-1.8.3-.8.3-1.6.2-1.7-.1-.2-.4-.3-.8-.5-.5-.2-2.8-1.4-3.2-1.5-.4-.2-.7-.2-1 .2-.3.4-1.1 1.5-1.4 1.8-.2.3-.5.3-.9.1-.5-.2-2-.7-3.8-2.4-1.4-1.3-2.4-2.9-2.6-3.3-.3-.4 0-.7.2-.9.2-.2.5-.5.7-.8.2-.3.3-.5.4-.9.2-.3.1-.6 0-.9Z",fill:"#25D366"})
           ),
-          h("div",null,
-            h("p",{style:"font-size:13px;font-weight:700;color:#fff;margin-bottom:1px;"},"Butuh pendampingan lebih dalam?"),
-            h("p",{style:"font-size:12px;color:rgba(255,255,255,0.5);"},"Klik untuk konsultasi dengan Budi")
+          el("div",null,
+            el("p",{css:"font-size:13px;font-weight:700;color:#fff;margin-bottom:1px;"},"Mau bahas lebih lanjut bareng Budi?"),
+            el("p",{css:"font-size:12px;color:rgba(255,255,255,0.5);"},"Langsung chat — biasanya respons cepat")
           )
         ),
-
-        CreditLine(),
-        h("div",{style:"height:90px;"})
+        creditLine(),
+        el("div",{css:"height:90px;"})
       ),
-      h("div",{class:"action-bar"},
-        h("button",{class:"btn btn-yellow",onclick:doPDF,disabled:state.pdfLoading},state.pdfLoading?"Membuka PDF...":"⬇ Download PDF")
+      el("div",{cls:"action-bar"},
+        el("button",{cls:"btn btn-yellow",onclick:()=>{
+          if(state.pdfLoading) return;
+          state.pdfLoading=true; render(); doPDF();
+        }},state.pdfLoading?"Lagi disiapkan...":"⬇ Simpan sebagai PDF")
       )
     )
   );
 }
 
-function render() {
-  const app = document.getElementById("app");
-  app.innerHTML = "";
-  let el;
-  switch(state.step) {
-    case "sales": el = renderSales(); break;
-    case "profil": el = renderProfil(); break;
-    case "situasi": el = renderSituasi(); break;
-    case "tantangan": el = renderTantangan(); break;
-    case "tujuan": el = renderTujuan(); break;
-    case "loading": el = renderLoading(); break;
-    case "error": el = renderError(); break;
-    case "result": el = renderResult(); break;
-    default: el = renderSales();
-  }
-  app.appendChild(el);
+// ── Render ────────────────────────────────────────────────────
+function render(){
+  const app=document.getElementById("app");
+  app.innerHTML="";
+  const screens={sales:screenSales,profil:screenProfil,situasi:screenSituasi,tantangan:screenTantangan,tujuan:screenTujuan,loading:screenLoading,error:screenError,result:screenResult};
+  const fn=screens[state.step]||screenSales;
+  app.appendChild(fn());
 }
 
-// Init
-try {
-  const savedStep = localStorage.getItem("bgp30_step");
-  if(savedStep && savedStep !== "sales" && savedStep !== "result") state.hasSaved = true;
-} catch(e) {}
+// ── Init ──────────────────────────────────────────────────────
+try{
+  const savedStep=localStorage.getItem("bgp30_step");
+  const savedForm=localStorage.getItem("bgp30_form");
+  if(savedStep&&savedStep!=="sales"&&savedStep!=="result"){
+    state.hasSaved=true;
+    // Pre-load saved form into state so Continue works correctly
+    if(savedForm){ const parsed=JSON.parse(savedForm); state.form=Object.assign(JSON.parse(JSON.stringify(INIT)),parsed); }
+  }
+}catch(e){}
 
 render();
 </script>
