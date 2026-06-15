@@ -118,14 +118,24 @@ function buildUserPrompt(f){
 }
 
 function parseResult(txt){
+  // 1. Try direct parse first (server already cleans output — fastest path)
+  try{ return JSON.parse(txt.trim()); }catch(_){}
+  // 2. Strip markdown fences
   let t=txt.replace(/```json\s*/gi,"").replace(/```\s*/g,"").trim();
-  const a=t.indexOf("{"),b=t.lastIndexOf("}");
-  if(a>-1&&b>-1) t=t.slice(a,b+1);
   try{ return JSON.parse(t); }catch(_){}
-  // Escape unescaped newlines inside string values
-  t=t.replace(/:\s*"([\s\S]*?)(?="(?:\s*[,}\]]))/g,function(m,v){ return m.replace(v,v.replace(/\r?\n/g,"\\n")); });
+  // 3. Brace-match from end: handles preamble text before JSON
+  //    Only reached if steps 1-2 failed, so { in string values are not an issue
+  const lastClose=t.lastIndexOf("}");
+  if(lastClose>-1){
+    let depth=0,st=-1;
+    for(let i=lastClose;i>=0;i--){
+      if(t[i]==="}") depth++;
+      else if(t[i]==="{"){depth--;if(depth===0){st=i;break;}}
+    }
+    if(st>-1) t=t.slice(st,lastClose+1);
+  }
   try{ return JSON.parse(t); }catch(_){}
-  // Last resort: flatten all whitespace
+  // 4. Last resort: flatten all whitespace
   t=t.replace(/\r?\n/g," ").replace(/\s+/g," ");
   return JSON.parse(t);
 }
@@ -150,7 +160,15 @@ async function runAI(isRetry){
     let data; try{data=await res.json();}catch(e){throw{type:"parse",msg:"Respons tidak terbaca."};}
     const txtBlock=(data.content||[]).find(b=>b.type==="text");
     if(!txtBlock||!txtBlock.text) throw{type:"parse",msg:"Hasil kosong. Coba lagi."};
-    let parsed; try{parsed=parseResult(txtBlock.text);}catch(e){throw{type:"parse",msg:"Format tidak valid. Coba lagi."};}
+    let parsed;
+    try{ parsed=parseResult(txtBlock.text); }
+    catch(e){ throw{type:"parse",msg:"Format tidak valid. Coba lagi."}; }
+    // Handle structured error from server-side validation
+    if(parsed.__error){
+      if(parsed.reason==="invalid_json") throw{type:"parse",msg:"Hasilnya terpotong — coba lagi."};
+      if(parsed.reason==="missing_fields") throw{type:"parse",msg:"Hasil tidak lengkap. Coba lagi."};
+      throw{type:"parse",msg:"Format tidak valid. Coba lagi."};
+    }
     if(!parsed.diagnosis_p1) throw{type:"parse",msg:"Hasil tidak lengkap. Coba lagi."};
     clearInterval(iv);
     state.result=parsed;
@@ -641,6 +659,8 @@ function screenError(){
 }
 
 function screenResult(){
+  // Guard: result can be null if user reopens old tab after session expired
+  if(!state.result){ go("sales"); return el("div",{}); }
   const r=state.result, f=state.form;
   const loc=f.wilayahDetail||f.wilayah||"Indonesia";
   return el("div",{css:"background:#F8F4EC;min-height:100vh;"},
