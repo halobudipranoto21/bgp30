@@ -26,10 +26,20 @@ exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body);
 
-    const system = `Kamu adalah Brand Strategist Indonesia. Jawab HANYA dengan JSON valid satu baris. Tidak ada teks lain, tidak ada backtick, tidak ada markdown, tidak ada newline di dalam string.
+    const system = `Kamu adalah Brand Strategist Indonesia. Jawab HANYA dengan JSON valid satu objek. Tanpa teks lain, tanpa backtick, tanpa markdown, tanpa newline di dalam string nilai.
 
-Ikuti format JSON ini PERSIS:
-{"opening_line":"1 kalimat personal sebut nama bisnis industri durasi","diagnosis_p1":"2 kalimat kondisi brand sekarang berdasarkan jawaban user","diagnosis_p2":"2 kalimat akar masalah dan peluang spesifik","minggu1":{"tema":"judul singkat","icon":"🎯","focus":"1 kalimat fokus","actions":["action spesifik 1","action spesifik 2","action spesifik 3","action spesifik 4"]},"minggu2":{"tema":"judul singkat","icon":"📱","focus":"1 kalimat fokus","actions":["action 1","action 2","action 3","action 4"]},"minggu3":{"tema":"judul singkat","icon":"🔥","focus":"1 kalimat fokus","actions":["action 1","action 2","action 3","action 4"]},"minggu4":{"tema":"judul singkat","icon":"📈","focus":"1 kalimat fokus","actions":["action 1","action 2","action 3","action 4"]},"prioritas":["tindakan konkret hari ini 1","tindakan 2","tindakan 3"],"kompetitor_analisis":[{"nama":"Nama Brand Nyata","url":"instagram atau website","kelebihan":"kelebihan singkat","kelemahan":"kelemahan singkat","peluang":"peluang untuk bisnis user"}],"kompetitor_riset_mandiri":true,"pesan_personal":"1-2 kalimat hangat dan personal"}`;
+Batas karakter PER NILAI (wajib dipatuhi):
+- opening_line: max 70 karakter
+- diagnosis_p1, diagnosis_p2: masing-masing max 80 karakter
+- tema: max 20 karakter
+- focus: max 50 karakter  
+- setiap action: max 45 karakter
+- setiap prioritas: max 50 karakter
+- kelebihan, kelemahan, peluang kompetitor: max 55 karakter
+- pesan_personal: max 100 karakter
+
+Format JSON (ikuti PERSIS, hanya 1 kompetitor):
+{"opening_line":"...","diagnosis_p1":"...","diagnosis_p2":"...","minggu1":{"tema":"...","icon":"🎯","focus":"...","actions":["...","...","..."]},"minggu2":{"tema":"...","icon":"📱","focus":"...","actions":["...","...","..."]},"minggu3":{"tema":"...","icon":"🔥","focus":"...","actions":["...","...","..."]},"minggu4":{"tema":"...","icon":"📈","focus":"...","actions":["...","...","..."]},"prioritas":["...","...","..."],"kompetitor_analisis":[{"nama":"...","url":"...","kelebihan":"...","kelemahan":"...","peluang":"..."}],"kompetitor_riset_mandiri":true,"pesan_personal":"..."}`;
 
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
@@ -40,41 +50,77 @@ Ikuti format JSON ini PERSIS:
       },
       body: JSON.stringify({
         model: "claude-haiku-4-5-20251001",
-        max_tokens: 2000,
+        max_tokens: 1500,
+        temperature: 0,
         system: system,
         messages: body.messages,
       }),
     });
 
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      return {
+        statusCode: response.status,
+        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+        body: JSON.stringify(errData),
+      };
+    }
+
     const data = await response.json();
 
-    // Clean response on server side
     if (data.content && Array.isArray(data.content)) {
       data.content = data.content.map(block => {
-        if (block.type === "text" && block.text) {
-          let text = block.text;
-          // Remove backticks and markdown
-          text = text.replace(/```json/gi, "").replace(/```/g, "").trim();
-          // Extract JSON between first { and last }
-          const first = text.indexOf("{");
-          const last = text.lastIndexOf("}");
-          if (first !== -1 && last !== -1) {
-            text = text.slice(first, last + 1);
+        if (block.type !== "text" || !block.text) return block;
+
+        let text = block.text;
+
+        // Strip markdown fences
+        text = text.replace(/```json\s*/gi, "").replace(/```\s*/g, "").trim();
+
+        // Brace-match dari belakang — handles { di preamble text
+        const lastClose = text.lastIndexOf("}");
+        if (lastClose > -1) {
+          let depth = 0, start = -1;
+          for (let i = lastClose; i >= 0; i--) {
+            if (text[i] === "}") depth++;
+            else if (text[i] === "{") { depth--; if (depth === 0) { start = i; break; } }
           }
-          // Remove all newlines and extra spaces
-          text = text.replace(/\r?\n/g, " ").replace(/\s+/g, " ").trim();
-          block.text = text;
+          if (start > -1) text = text.slice(start, lastClose + 1);
         }
+
+        // Collapse whitespace
+        text = text.replace(/\r?\n/g, " ").replace(/\s+/g, " ").trim();
+
+        // Validasi server-side
+        try {
+          const parsed = JSON.parse(text);
+          const required = ["diagnosis_p1", "diagnosis_p2", "minggu1", "prioritas", "pesan_personal"];
+          const missing = required.filter(k => !parsed[k]);
+          if (missing.length > 0) {
+            return {
+              type: "text",
+              text: JSON.stringify({ __error: true, reason: "missing_fields", missing }),
+            };
+          }
+          block.text = JSON.stringify(parsed);
+        } catch (e) {
+          return {
+            type: "text",
+            text: JSON.stringify({
+              __error: true,
+              reason: "invalid_json",
+              raw_preview: text.slice(0, 200),
+            }),
+          };
+        }
+
         return block;
       });
     }
 
     return {
-      statusCode: response.ok ? 200 : response.status,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
+      statusCode: 200,
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify(data),
     };
 
